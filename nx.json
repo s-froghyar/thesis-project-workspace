@@ -1,0 +1,48 @@
+{
+  "npmScope": "somaf-ws",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "MjBiNzUwYTQtMzNlZC00NjdjLTgxZDMtNDZkNzE3ZjQ2NDMyfHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "projects": {
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    },
+    "thesis": {
+      "tags": []
+    },
+    "thesis-e2e": {
+      "tags": [],
+      "implicitDependencies": ["thesis"]
+    },
+    "thesis-layout": {
+      "tags": []
+    }
+  }
+}
