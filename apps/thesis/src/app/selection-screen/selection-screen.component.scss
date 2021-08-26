@@ -1,0 +1,43 @@
+:host {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+}
+.section {
+    width: 100%;
+    height: 100%;
+    & > .instructions {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+        padding: 1rem;
+    }
+    & > .choices {
+        width: 80%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .option {
+            padding: .5rem;
+            width: 100%;
+            text-align: center;
+            background: white;
+            margin: .5rem;
+            cursor: pointer;
+            transition: all 0.5s;
+            &:hover {
+                background: grey;
+            }
+            &.selected {
+                background: grey;
+            }
+        }
+    }
+}

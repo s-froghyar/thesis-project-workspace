@@ -8,12 +8,16 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": [
+              "apps/api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -38,12 +42,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/api/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/api/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/api"],
+          "outputs": [
+            "coverage/apps/api"
+          ],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
@@ -59,7 +67,34 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/api-interfaces/**/*.ts"
+            ]
+          }
+        }
+      }
+    },
+    "color-harmonies": {
+      "root": "libs/color-harmonies",
+      "sourceRoot": "libs/color-harmonies/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/color-harmonies/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/color-harmonies"
+          ],
+          "options": {
+            "jestConfig": "libs/color-harmonies/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
@@ -72,7 +107,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/thesis",
             "index": "apps/thesis/src/index.html",
@@ -80,8 +117,13 @@
             "polyfills": "apps/thesis/src/polyfills.ts",
             "tsConfig": "apps/thesis/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["apps/thesis/src/favicon.ico", "apps/thesis/src/assets"],
-            "styles": ["apps/thesis/src/styles.scss"],
+            "assets": [
+              "apps/thesis/src/favicon.ico",
+              "apps/thesis/src/assets"
+            ],
+            "styles": [
+              "apps/thesis/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -149,7 +191,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/thesis"],
+          "outputs": [
+            "coverage/apps/thesis"
+          ],
           "options": {
             "jestConfig": "apps/thesis/jest.config.js",
             "passWithNoTests": true
@@ -178,7 +222,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/thesis-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/thesis-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -191,14 +237,43 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/thesis-layout/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/thesis-layout/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/thesis-layout"],
+          "outputs": [
+            "coverage/libs/thesis-layout"
+          ],
           "options": {
             "jestConfig": "libs/thesis-layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "utils": {
+      "root": "libs/utils",
+      "sourceRoot": "libs/utils/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/utils/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/utils"
+          ],
+          "options": {
+            "jestConfig": "libs/utils/jest.config.js",
             "passWithNoTests": true
           }
         }

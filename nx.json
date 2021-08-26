@@ -14,7 +14,12 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
         "accessToken": "MjBiNzUwYTQtMzNlZC00NjdjLTgxZDMtNDZkNzE3ZjQ2NDMyfHJlYWQtd3JpdGU="
       }
     }
@@ -34,14 +39,22 @@
     "api-interfaces": {
       "tags": []
     },
+    "color-harmonies": {
+      "tags": []
+    },
     "thesis": {
       "tags": []
     },
     "thesis-e2e": {
       "tags": [],
-      "implicitDependencies": ["thesis"]
+      "implicitDependencies": [
+        "thesis"
+      ]
     },
     "thesis-layout": {
+      "tags": []
+    },
+    "utils": {
       "tags": []
     }
   }
