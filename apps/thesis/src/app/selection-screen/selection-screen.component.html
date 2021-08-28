@@ -7,7 +7,8 @@
         <div class="option"
             *ngFor="let file of musicOptions"
             (click)="selectFile(file)"
-            [class.selected]="file.selected">
+            [class.selected]="file.selected"
+            [ngStyle]="{'background': colors.getColorString('base')}">
             {{ file.name }}
         </div>
     </div>
