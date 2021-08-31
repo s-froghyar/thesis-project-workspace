@@ -72,3 +72,15 @@ export function colorHarmonies(type: string): ColorHarmony {
 
     return harmonies[type]({hue: hsl[0], saturation: hsl[1], light: hsl[2]})
 }
+
+export function colorHarmoniesWithBase(type: string, baseColor: Color) {
+    const harmonies = {
+        'analogous': analogousColor,
+        'tetradic': tetradicColor,
+        'split-complementary': splitComplementaryColor,
+        'triadic': triadicColor,
+        'complementary': complementaryColor
+    }
+
+    return harmonies[type](baseColor)
+}

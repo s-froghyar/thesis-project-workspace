@@ -1,32 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-import { sampleFiles, SettingOption } from '@somaf-ws/utils';
-import { colorHarmonies, ColorHarmony } from '@somaf-ws/color-harmonies';
+import { modelOptions, sampleFiles, SettingOption, transformOptions } from '@somaf-ws/utils';
 import { ColorPaletteService } from '../core/color-palette.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'somaf-ws-selection-screen',
   templateUrl: './selection-screen.component.html',
   styleUrls: ['./selection-screen.component.scss']
 })
 export class SelectionScreenComponent implements OnInit {
+  fg: FormGroup = new FormGroup({
+    sampleFile: new FormControl([null, Validators.required]),
+    model: new FormControl([null, Validators.required]),
+    transform: new FormControl([null, Validators.required])
+  });
+
   musicOptions: SettingOption[] = sampleFiles;
-  selectedFile!: SettingOption;
+  models: SettingOption[] = modelOptions;
+  transforms: SettingOption[] = transformOptions;
 
   leftBg;
   rightBg;
-  constructor(public readonly colors: ColorPaletteService) {}
+  pageColor;
+  constructor(
+    public readonly colors: ColorPaletteService,
+    private readonly router: Router
+    ) {}
 
   ngOnInit(): void {
-    
+    const complColor = this.colors.getColorHarmony('split-complementary').secondary;
+    this.pageColor = `hsl(${complColor.hue}, ${complColor.saturation}%, ${complColor.light}%)`
   }
-  selectFile(file: SettingOption): void {
-    this.selectedFile = Object.assign({}, {...file, selected: true});
-    this.musicOptions.forEach(f => {
-      if (f.name === file.name) {
-        f.selected = true;
-      } else {
-        f.selected = false;
+  submit(): void {
+    this.router.navigate(['model'], {state: {
+        sampleFile: this.fg.controls['sampleFile'].value,
+        model: this.fg.controls['model'].value,
+        transform: this.fg.controls['transform'].value,
       }
     });
   }
-
 }

@@ -1,42 +1,25 @@
-<div class="section" [ngStyle]="{'background': colors.leftBg}">
-    <div class="instructions">
-        <h1>Choose a sample file</h1>
-        <p>The sample files are drawn from the validation set of the project.</p>
-    </div>
-    <div class="choices">
-        <div class="option"
-            *ngFor="let file of musicOptions"
-            (click)="selectFile(file)"
-            [class.selected]="file.selected"
-            [ngStyle]="{'background': colors.getColorString('base')}">
-            {{ file.name }}
+<div class="selection-container" [ngStyle]="{'color': pageColor}" [formGroup]="fg">
+    <div class="section" [ngStyle]="{'background': colors.leftBg}">
+        <div class="instructions">
+            <h1>Choose a sample file</h1>
+            <p>The sample files are drawn from the validation set of the project.</p>
         </div>
+        <somaf-ws-menu-selector [items]="musicOptions" formControlName="sampleFile"></somaf-ws-menu-selector>
     </div>
+    
+    <div class="section" [ngStyle]="{'background': colors.rightBg}">
+        <div class="instructions">
+            <h1>Choose a model</h1>
+            <p>The project used 4 different models:</p>
+        </div>
+        <somaf-ws-menu-selector [items]="models" formControlName="model"></somaf-ws-menu-selector>
+        
+        <div class="instructions">
+            <h1>Choose a transform</h1>
+            <p>The models were trained to be robust to:</p>
+        </div>
+        <somaf-ws-menu-selector [items]="transforms" formControlName="transform"></somaf-ws-menu-selector>
+    </div>
+    <div class="stepper" *ngIf="fg.valid" (click)="submit()"></div>
 </div>
 
-<div class="section" [ngStyle]="{'background': colors.rightBg}">
-    <div class="instructions">
-        <h1>Choose a model</h1>
-        <p>The project used 4 different models:</p>
-    </div>
-    <div class="choices">
-        <!-- <div class="option"
-            *ngFor="let modelOption of modelOptions"
-            [class.selected]="modelOption.selected"
-            (click)="selectOption(modelOption)">
-            {{modelOption.name}}
-        </div> -->
-    </div>
-    <div class="instructions">
-        <h1>Choose a transform</h1>
-        <p>The models were trained to be robust to:</p>
-    </div>
-    <div class="choices">
-        <!-- <div class="option"
-            *ngFor="let transformOption of transformOptions"
-            [class.selected]="transformOption.selected"
-            (click)="selectTransformOption(transformOption)">
-            {{transformOption.name}}
-        </div> -->
-    </div>
-</div>

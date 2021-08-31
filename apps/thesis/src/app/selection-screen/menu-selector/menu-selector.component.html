@@ -1,0 +1,9 @@
+<div class="choices">
+    <div class="option"
+        *ngFor="let option of items"
+        [class.selected]="option.selected"
+        (click)="selectItem(option)"
+        [ngStyle]="{'background': optionBg, 'color': colors.getColorString('base')}">
+        {{option.name}}
+    </div>
+</div>

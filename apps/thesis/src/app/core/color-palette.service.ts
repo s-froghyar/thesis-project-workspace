@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { colorHarmonies, ColorHarmony } from '@somaf-ws/color-harmonies';
+import { colorHarmonies, colorHarmoniesWithBase, ColorHarmony } from '@somaf-ws/color-harmonies';
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +38,6 @@ export class ColorPaletteService {
     this.colors = colorHarmonies('analogous');
     this.leftBg = this.linGradTransform(this.colors, 'secondary', 'base');   
     this.rightBg = this.linGradTransform(this.colors, 'base', 'tertiary');
-
   }
 
   public linGradTransform(ch: ColorHarmony, from: string, to: string): string {
@@ -47,6 +46,10 @@ export class ColorPaletteService {
 
   public getColorString(type: string): string {
     return `hsl(${this._colors[type].hue}, ${this._colors[type].saturation}%, ${this._colors[type].light}%)`
+  }
+
+  public getColorHarmony(hType: string): ColorHarmony {
+    return colorHarmoniesWithBase(hType, this.colors.base);
   }
 }
 
