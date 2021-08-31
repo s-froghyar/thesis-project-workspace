@@ -12,8 +12,9 @@ import { CoreModule } from './core/core.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MenuSelectorComponent } from './selection-screen/menu-selector/menu-selector.component';
 import { ModelScreenComponent } from './model-screen/model-screen.component';
+import { ConvLayerComponent } from './model-screen/conv-layer/conv-layer.component';
 @NgModule({
-  declarations: [AppComponent, SelectionScreenComponent, MenuSelectorComponent, ModelScreenComponent],
+  declarations: [AppComponent, SelectionScreenComponent, MenuSelectorComponent, ModelScreenComponent, ConvLayerComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

@@ -5,8 +5,8 @@ import { SelectionScreenComponent } from './selection-screen/selection-screen.co
 
 
 const routes: Routes = [
-  { path: '', component: SelectionScreenComponent },
-  { path: 'model', component: ModelScreenComponent },
+  { path: '', component: SelectionScreenComponent, data: {animation: 'SelectorScreen'} },
+  { path: 'model', component: ModelScreenComponent, data: {animation: 'ModelScreen'}  },
 ];
 
 @NgModule({
