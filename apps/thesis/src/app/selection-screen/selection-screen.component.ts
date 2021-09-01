@@ -25,14 +25,16 @@ export class SelectionScreenComponent implements OnInit {
   constructor(
     public readonly colors: ColorPaletteService,
     private readonly router: Router
-    ) {}
+  ) {}
 
   ngOnInit(): void {
-    const complColor = this.colors.getColorHarmony('split-complementary').secondary;
-    this.pageColor = `hsl(${complColor.hue}, ${complColor.saturation}%, ${complColor.light}%)`
+    const complColor = this.colors.getColorHarmony('split-complementary')?.secondary;
+    if (complColor) {
+      this.pageColor = `hsl(${complColor.hue}, ${complColor.saturation}%, ${complColor.light}%)`
+    }
   }
   submit(): void {
-    this.router.navigate(['model'], {state: {
+    this.router.navigate(['model'], { state: {
         sampleFile: this.fg.controls['sampleFile'].value,
         model: this.fg.controls['model'].value,
         transform: this.fg.controls['transform'].value,

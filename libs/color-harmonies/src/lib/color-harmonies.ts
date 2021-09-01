@@ -1,4 +1,4 @@
-import { Color, ColorHarmony } from "./interfaces/colors.interface";
+import { Color, ColorHarmony, HarmonyType } from "./interfaces/colors.interface";
 
 declare function require(name:string);
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -55,7 +55,12 @@ function analogousColor(base: Color): ColorHarmony {
     };
 };
 
-export function colorHarmonies(type: string): ColorHarmony {
+
+
+
+export function colorHarmonies(type: HarmonyType): ColorHarmony | null {
+    if (!type) return null;
+
     const harmonies = {
         'analogous': analogousColor,
         'tetradic': tetradicColor,
@@ -73,7 +78,8 @@ export function colorHarmonies(type: string): ColorHarmony {
     return harmonies[type]({hue: hsl[0], saturation: hsl[1], light: hsl[2]})
 }
 
-export function colorHarmoniesWithBase(type: string, baseColor: Color) {
+export function colorHarmoniesWithBase(type: HarmonyType, baseColor: Color): ColorHarmony | null {
+    if (!type) return null;
     const harmonies = {
         'analogous': analogousColor,
         'tetradic': tetradicColor,
@@ -83,4 +89,23 @@ export function colorHarmoniesWithBase(type: string, baseColor: Color) {
     }
 
     return harmonies[type](baseColor)
+}
+
+export const backUpHarmony: ColorHarmony = {
+    type: 'analogous',
+    base: {
+        hue: 189,
+        light: 42,
+        saturation: 48
+    },
+    secondary: {
+        hue: 219,
+        light: 42,
+        saturation: 48
+    },
+    tertiary: {
+        hue: 159,
+        light: 42,
+        saturation: 48
+    }
 }

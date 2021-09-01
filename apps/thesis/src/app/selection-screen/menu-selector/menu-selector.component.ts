@@ -43,8 +43,10 @@ export class MenuSelectorComponent implements ControlValueAccessor {
 
   
   constructor(readonly colors: ColorPaletteService) {
-    const complColor = this.colors.getColorHarmony('split-complementary').secondary;
-    this.optionBg = `hsl(${complColor.hue}, ${complColor.saturation}%, ${complColor.light}%)`
+    const complColor = this.colors.getColorHarmony('split-complementary')?.secondary;
+    if (complColor) {
+      this.optionBg = `hsl(${complColor.hue}, ${complColor.saturation}%, ${complColor.light}%)`;
+    }
   }
 
   writeValue(val: SettingOption) {

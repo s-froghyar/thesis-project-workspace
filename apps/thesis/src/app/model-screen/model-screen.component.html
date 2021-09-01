@@ -1,7 +1,7 @@
 <div class="model-screen-container">
-    <div class="section"><somaf-ws-conv-layer></somaf-ws-conv-layer></div>
-    <div class="section"><somaf-ws-conv-layer></somaf-ws-conv-layer></div>
-    <div class="section"><somaf-ws-conv-layer></somaf-ws-conv-layer></div>
-    <div class="section"><somaf-ws-fc-layer></somaf-ws-fc-layer></div>
+    <div class="section" [ngStyle]="{'background': bgColors['input']}"><somaf-ws-conv-layer></somaf-ws-conv-layer></div>
+    <div class="section" [ngStyle]="{'background': bgColors['conv1']}"><somaf-ws-conv-layer></somaf-ws-conv-layer></div>
+    <div class="section" [ngStyle]="{'background': bgColors['conv2']}"><somaf-ws-conv-layer></somaf-ws-conv-layer></div>
+    <div class="section" [ngStyle]="{'background': bgColors['fc']}"><somaf-ws-fc-layer></somaf-ws-fc-layer></div>
     <div class="section"><somaf-ws-genre-layer></somaf-ws-genre-layer></div>
 </div>

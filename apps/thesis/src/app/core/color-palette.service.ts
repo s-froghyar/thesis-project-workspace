@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { colorHarmonies, colorHarmoniesWithBase, ColorHarmony } from '@somaf-ws/color-harmonies';
+import { backUpHarmony, colorHarmonies, colorHarmoniesWithBase, ColorHarmony, HarmonyType } from '@somaf-ws/color-harmonies';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +35,7 @@ export class ColorPaletteService {
   
 
   constructor() {
-    this.colors = colorHarmonies('analogous');
+    this.colors = colorHarmonies('analogous') ?? backUpHarmony;
     this.leftBg = this.linGradTransform(this.colors, 'secondary', 'base');   
     this.rightBg = this.linGradTransform(this.colors, 'base', 'tertiary');
   }
@@ -44,11 +44,15 @@ export class ColorPaletteService {
     return `linear-gradient(90deg, hsl(${ch[from].hue}, ${ch[from].saturation}%, ${ch[from].light}%) 0%, hsl(${ch[to].hue}, ${ch[to].saturation}%, ${ch[to].light}%) 100%)`
   }
 
+  public radGradTransform(ch: ColorHarmony, from: string): string {
+    return `radial-gradient(farthest-corner at 0% 85%, hsl(${ch[from].hue}, ${ch[from].saturation}%, ${ch[from].light}%) 0%, #F0F0F0 80%)`
+  }
+
   public getColorString(type: string): string {
     return `hsl(${this._colors[type].hue}, ${this._colors[type].saturation}%, ${this._colors[type].light}%)`
   }
 
-  public getColorHarmony(hType: string): ColorHarmony {
+  public getColorHarmony(hType: HarmonyType): ColorHarmony | null {
     return colorHarmoniesWithBase(hType, this.colors.base);
   }
 }

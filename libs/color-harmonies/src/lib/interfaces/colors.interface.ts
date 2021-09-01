@@ -1,3 +1,4 @@
+export type HarmonyType = 'analogous' | 'tetradic' | 'split-complementary' | 'triadic' | 'complementary' | null;
 export interface Color {
     red?: number;
     green?: number;
@@ -7,7 +8,7 @@ export interface Color {
     light?: number;
 }
 export interface ColorHarmony {
-    type: string;
+    type: HarmonyType;
     base: Color;
     secondary: Color;
     tertiary?: Color;
