@@ -13,8 +13,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MenuSelectorComponent } from './selection-screen/menu-selector/menu-selector.component';
 import { ModelScreenComponent } from './model-screen/model-screen.component';
 import { ConvLayerComponent } from './model-screen/conv-layer/conv-layer.component';
+import { FcLayerComponent } from './model-screen/fc-layer/fc-layer.component';
+import { GenreLayerComponent } from './model-screen/genre-layer/genre-layer.component';
 @NgModule({
-  declarations: [AppComponent, SelectionScreenComponent, MenuSelectorComponent, ModelScreenComponent, ConvLayerComponent],
+  declarations: [AppComponent, SelectionScreenComponent, MenuSelectorComponent, ModelScreenComponent, ConvLayerComponent, FcLayerComponent, GenreLayerComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
