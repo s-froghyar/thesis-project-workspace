@@ -44,8 +44,12 @@ export class ColorPaletteService {
     return `linear-gradient(90deg, hsl(${ch[from].hue}, ${ch[from].saturation}%, ${ch[from].light}%) 0%, hsl(${ch[to].hue}, ${ch[to].saturation}%, ${ch[to].light}%) 100%)`
   }
 
-  public radGradTransform(ch: ColorHarmony, from: string): string {
-    return `radial-gradient(farthest-corner at 0% 85%, hsl(${ch[from].hue}, ${ch[from].saturation}%, ${ch[from].light}%) 0%, #F0F0F0 80%)`
+  // ${ch[from].light} --> turned to 20% for a darker feel
+  public radGradTransform(ch: ColorHarmony, from: string, invert = false): string {
+    if (invert) {
+      return `radial-gradient(farthest-corner at 100% 15%, hsl(${ch[from].hue}, ${ch[from].saturation}%, 20%) 0%, transparent 90%)`
+    }
+    return `radial-gradient(farthest-corner at 0% 85%, hsl(${ch[from].hue}, ${ch[from].saturation}%, 20%) 0%, transparent 90%)`
   }
 
   public getColorString(type: string): string {

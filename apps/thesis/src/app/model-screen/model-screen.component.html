@@ -1,7 +1,22 @@
 <div class="model-screen-container">
-    <div class="section" [ngStyle]="{'background': bgColors['input']}"><somaf-ws-conv-layer></somaf-ws-conv-layer></div>
-    <div class="section" [ngStyle]="{'background': bgColors['conv1']}"><somaf-ws-conv-layer></somaf-ws-conv-layer></div>
-    <div class="section" [ngStyle]="{'background': bgColors['conv2']}"><somaf-ws-conv-layer></somaf-ws-conv-layer></div>
+    <div class="section" [ngStyle]="{'background': bgColors['bl']['input']}">
+        <somaf-ws-conv-layer
+            title="In"
+            [bgColor]="bgColors['tr']['input']">
+        </somaf-ws-conv-layer>
+    </div>
+    <div class="section" [ngStyle]="{'background': bgColors['bl']['conv1']}">
+        <somaf-ws-conv-layer
+            title="Conv1"
+            [bgColor]="bgColors['tr']['conv1']"
+        ></somaf-ws-conv-layer>
+    </div>
+    <div class="section" [ngStyle]="{'background': bgColors['bl']['conv2']}">
+        <somaf-ws-conv-layer
+            title="Conv2"
+            [bgColor]="bgColors['tr']['conv2']"
+        ></somaf-ws-conv-layer>
+    </div>
     <div class="section" [ngStyle]="{'background': bgColors['fc']}"><somaf-ws-fc-layer></somaf-ws-fc-layer></div>
     <div class="section"><somaf-ws-genre-layer></somaf-ws-genre-layer></div>
 </div>

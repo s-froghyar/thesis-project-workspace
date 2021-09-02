@@ -15,16 +15,20 @@ export class ModelScreenComponent implements OnInit {
 
   ngOnInit(): void {
     this.colorHarmony = this.colors.getColorHarmony('tetradic') as ColorHarmony;
-    // console.log(this.colorHarmony);
     this.bgColors = {
-      input: this.colors.radGradTransform(this.colorHarmony, 'base'),
-      conv1: this.colors.radGradTransform(this.colorHarmony, 'secondary'),
-      conv2: this.colors.radGradTransform(this.colorHarmony, 'tertiary',),
-      fc: this.colors.radGradTransform(this.colorHarmony, 'fourth'),
-      // input: this.colors.linGradTransform(this.colorHarmony, 'base', 'secondary'),
-      // conv1: this.colors.linGradTransform(this.colorHarmony, 'secondary', 'tertiary'),
-      // conv2: this.colors.linGradTransform(this.colorHarmony, 'tertiary', 'fourth'),
-      // fc: this.colors.linGradTransform(this.colorHarmony, 'fourth', 'base'),
+      bl: {
+        input: this.colors.radGradTransform(this.colorHarmony, 'base'),
+        conv1: this.colors.radGradTransform(this.colorHarmony, 'secondary'),
+        conv2: this.colors.radGradTransform(this.colorHarmony, 'tertiary',),
+        fc: this.colors.radGradTransform(this.colorHarmony, 'fourth'),
+      },
+      tr: {
+        input: this.colors.radGradTransform(this.colorHarmony, 'base', true),
+        conv1: this.colors.radGradTransform(this.colorHarmony, 'secondary', true),
+        conv2: this.colors.radGradTransform(this.colorHarmony, 'tertiary', true),
+        fc: this.colors.radGradTransform(this.colorHarmony, 'fourth', true),
+      }
+      
     }    
   }
 
