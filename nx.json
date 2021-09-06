@@ -10,7 +10,6 @@
     },
     ".eslintrc.json": "*"
   },
-  
   "targetDependencies": {
     "build": [
       {
@@ -20,6 +19,9 @@
     ]
   },
   "projects": {
+    "api": {
+      "tags": []
+    },
     "color-harmonies": {
       "tags": []
     },
@@ -28,9 +30,7 @@
     },
     "thesis-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "thesis"
-      ]
+      "implicitDependencies": ["thesis"]
     },
     "thesis-layout": {
       "tags": []
