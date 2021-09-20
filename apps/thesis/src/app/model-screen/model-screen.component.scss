@@ -1,13 +1,66 @@
 .model-screen-container {
+    position: relative;
     height: 93vh;
     width: 100vw;
     overflow: hidden;
     background-color: #2f4f4f;
-
     display: flex;
-
-    .section {
+    align-items: center;
+    justify-content: center;
+    .inner-model {
+        position: relative;
+        display: flex;
         width: 100%;
         height: 100%;
+        .section {
+            width: 40%;
+            height: 100%;
+            transform: skewX(-5deg);
+            transition: all .5s ease-in-out;
+    
+            &:first-child {
+                margin-left: 4%;
+            }
+            &:hover {
+                width: 70%;
+            }
+        }
+        .full, .sum {
+            width: 0%;
+            height: 100%;
+            margin-right: 2rem;
+            margin-left: 2rem;
+            background-color: transparent;
+        }
+        .connect {
+            position: relative;
+            height: 50vh;
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 1;
+            &.fc1-connect img {
+                position: absolute;
+                top: calc(93vh / 3);
+                left:-20px;
+                width: 100%;
+            }
+            &.pred-connect img {
+                // right: 10rem;
+            }
+        }
+    }
+    .loading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: gray;
+        opacity: 0.5;
     }
 }

@@ -1,22 +1,46 @@
 <div class="model-screen-container">
-    <div class="section" [ngStyle]="{'background': bgColors['bl']['input']}">
-        <somaf-ws-conv-layer
-            title="In"
-            [bgColor]="bgColors['tr']['input']">
-        </somaf-ws-conv-layer>
+    <div class="full"></div>
+    <div class="inner-model" *ngIf="!isLoading">
+        <div class="section" [ngStyle]="{'background': bgColors['bl']['input']}">
+            <somaf-ws-conv-layer
+                title="In"
+                layer="in"
+                [bgColor]="bgColors['tr']['input']">
+            </somaf-ws-conv-layer>
+        </div>
+        <div class="section" [ngStyle]="{'background': bgColors['bl']['conv1']}">
+            <somaf-ws-conv-layer
+                title="Conv1"
+                layer="conv1"
+                [bgColor]="bgColors['tr']['conv1']"
+            ></somaf-ws-conv-layer>
+        </div>
+        <div class="section" [ngStyle]="{'background': bgColors['bl']['conv2']}">
+            <somaf-ws-conv-layer
+                title="Conv2"
+                layer="conv2"
+                [bgColor]="bgColors['tr']['conv2']"
+            ></somaf-ws-conv-layer>
+        </div>
+        <div class="fc1-connect connect">
+                <img src="../../../../assets/conv_to_fc.svg">
+        </div>
+        <div class="" [ngStyle]="{'background': bgColors['fc']}">
+            <somaf-ws-fc-layer
+                [neurons]=""
+            ></somaf-ws-fc-layer>
+        </div>
+        <div class="pred-connect connect">
+                <img src="../../../../assets/fc_to_pred.svg">
+        </div>
+        <div class=""><somaf-ws-genre-layer></somaf-ws-genre-layer></div>        
     </div>
-    <div class="section" [ngStyle]="{'background': bgColors['bl']['conv1']}">
-        <somaf-ws-conv-layer
-            title="Conv1"
-            [bgColor]="bgColors['tr']['conv1']"
-        ></somaf-ws-conv-layer>
+    <div class="sum"></div>
+    <div class="loading" *ngIf="isLoading" [@inOutAnimation]>
+        <fa-icon  
+            [icon]="loadingIcon"
+            [spin]="true"
+            size="4x"
+        ></fa-icon>
     </div>
-    <div class="section" [ngStyle]="{'background': bgColors['bl']['conv2']}">
-        <somaf-ws-conv-layer
-            title="Conv2"
-            [bgColor]="bgColors['tr']['conv2']"
-        ></somaf-ws-conv-layer>
-    </div>
-    <div class="section" [ngStyle]="{'background': bgColors['fc']}"><somaf-ws-fc-layer></somaf-ws-fc-layer></div>
-    <div class="section"><somaf-ws-genre-layer></somaf-ws-genre-layer></div>
 </div>

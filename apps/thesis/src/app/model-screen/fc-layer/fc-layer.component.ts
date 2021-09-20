@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'somaf-ws-fc-layer',
@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fc-layer.component.scss']
 })
 export class FcLayerComponent implements OnInit {
+  @Input() neurons;
 
-  constructor() { }
 
   ngOnInit(): void {
   }

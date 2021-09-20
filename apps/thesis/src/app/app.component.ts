@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './animations';
 
@@ -10,7 +9,6 @@ import { slideInAnimation } from './animations';
   animations: [slideInAnimation]
 })
 export class AppComponent {
-  constructor(private http: HttpClient) {}
   prepareRoute(outlet: RouterOutlet){
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }

@@ -3,6 +3,7 @@ import { modelOptions, sampleFiles, SettingOption, transformOptions } from '@som
 import { ColorPaletteService } from '../core/color-palette.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { S3Service } from '../core/s3.service';
 @Component({
   selector: 'somaf-ws-selection-screen',
   templateUrl: './selection-screen.component.html',
@@ -24,6 +25,7 @@ export class SelectionScreenComponent implements OnInit {
   pageColor;
   constructor(
     public readonly colors: ColorPaletteService,
+    private readonly s3: S3Service,
     private readonly router: Router
   ) {}
 

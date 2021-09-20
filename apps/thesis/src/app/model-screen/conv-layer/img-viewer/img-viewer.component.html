@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="prev"  >
+        <img *ngIf="prevUrl.length !== 0" [src]="prevUrl" alt="" (click)="updateUrls(-1)">
+    </div>
+    <div class="curr">
+        <img [src]="currentUrl" alt="">
+    </div>
+    <div class="next">
+        <img *ngIf="nextUrl.length !== 0" [src]="nextUrl" alt="" (click)="updateUrls(1)">
+    </div>
+    <div class="expand-btn" *ngIf="status === 'static'" (click)="toggleState()">
+        <fa-icon [icon]="chevDown" size="3x"></fa-icon>
+    </div>
+</div>

@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { ColorHarmony } from '@somaf-ws/color-harmonies';
-import { ColorPaletteService } from '../../core/color-palette.service';
+import { S3Service } from '../../core/s3.service';
+import { ViewingState } from './img-viewer/img-viewer.interface';
 
 @Component({
   selector: 'somaf-ws-conv-layer',
@@ -10,23 +9,18 @@ import { ColorPaletteService } from '../../core/color-palette.service';
 })
 export class ConvLayerComponent implements OnInit {
   @Input() title!: string;
+  @Input() layer!: string;
   @Input() bgColor!: string;
 
-  // colorHarmony!: ColorHarmony;
-  // bgColors!: any;
+  baseUrl = '';
+  status: ViewingState = 'static';
 
-  chevDown = faChevronDown;
-  constructor() { }
-
+  constructor(private readonly s3: S3Service) { }
 
   ngOnInit(): void {
-    // this.colorHarmony = this.colors.getColorHarmony('tetradic') as ColorHarmony;
-    // this.bgColors = {
-    //   input: this.colors.radGradTransform(this.colorHarmony, 'base'),
-    //   conv1: this.colors.radGradTransform(this.colorHarmony, 'secondary'),
-    //   conv2: this.colors.radGradTransform(this.colorHarmony, 'tertiary',),
-    //   fc: this.colors.radGradTransform(this.colorHarmony, 'fourth'),
-    // } 
+    this.baseUrl = this.s3.getSampleResultsUrl(); 
   }
-
+  toggleStatus(): void {
+    this.status = this.status === 'static' ? 'viewing' : 'static'
+  }
 }

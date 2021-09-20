@@ -12,19 +12,21 @@ export class S3Service {
       return await this.s3.getSignedUrlPromise('getObject', {
         Bucket: 'mgr-thesis-bucket',
         Key: uuidv4(),
+        Refion: 'eu-west-2'
       });
     } catch (error) {
       console.log('lmaoooooooo');
+      console.log(error);
+      
     }
   }
 
   uploadSongToS3(file) {
-    const fileBuffer = createReadStream(file.path);
+    const fileStream = createReadStream(file.path);
 
     const params = {
       Bucket: 'mgr-thesis-bucket',
-      Body: fileBuffer,
-      // ACL: 'public-read',
+      Body: fileStream,
       Key: `dynamic/audio/${uuidv4()}`,
     };
     return this.s3.upload(params).promise();

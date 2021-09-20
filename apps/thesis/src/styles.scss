@@ -7,4 +7,14 @@ body {
     font-family: 'Crimson Pro', serif;
     // font-weight: 200;
     font-size: 16px;
+    overflow: hidden;
+}
+.menu-modal {
+    width: 100%;
+    height: 93vh;
+    position: absolute;
+    top: 7vh;
+    left: 0;
+    background: red;
+    z-index: 10;
 }

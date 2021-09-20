@@ -1,1 +1,6 @@
-<p>fc-layer works!</p>
+<div class="fc">
+    <div *ngFor="let neuron of neurons"
+    class="neuron"
+    [ngStyle]="{'opacity': neuron.opacityValue}">
+    {{neuron.displayValue}}</div>
+</div>

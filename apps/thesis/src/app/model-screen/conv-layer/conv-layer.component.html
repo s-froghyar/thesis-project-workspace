@@ -1,7 +1,11 @@
-<div class="conv-container" [ngStyle]="{'background': bgColor}">
-    <div class="layer-selector"></div>
-    <div class="expand-btn">
-        <fa-icon [icon]="chevDown" size="3x"></fa-icon>
+<div class="conv-container" [ngStyle]="{'background': bgColor}" (clickOutside)="toggleStatus()">
+    <div class="layer-selector">
+        <somaf-ws-img-viewer
+            [baseUrl]="baseUrl"
+            [layer]="layer"
+            [status]="status"
+            
+        ></somaf-ws-img-viewer>
     </div>
     <div class="title">{{title}}</div>
 </div>
