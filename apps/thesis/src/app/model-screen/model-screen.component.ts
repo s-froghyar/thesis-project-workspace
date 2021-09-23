@@ -1,43 +1,25 @@
-import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { ColorHarmony } from '@somaf-ws/color-harmonies';
 import { finalize, first } from 'rxjs/operators';
+import { inOutAnimation } from '../core/animations';
 
 import { ColorPaletteService } from '../core/color-palette.service';
 import { S3Service } from '../core/s3.service';
-// import {  } from '@fortawesome/fontawesome-svg-core';
+
 @Component({
   selector: 'somaf-ws-model-screen',
   templateUrl: './model-screen.component.html',
   styleUrls: ['./model-screen.component.scss'],
   animations: [
-    trigger(
-      'inOutAnimation',
-      [
-        transition(':enter', [
-          style({opacity: 0}),
-          animate('0.5s ease-out', 
-                  style({ opacity: 0.5 })
-                )
-          ]
-        ),
-        transition(':leave', [
-          style({opacity: 0.5}),
-          animate('0.5s ease-out', 
-                  style({ opacity: 0 })
-              )
-          ]
-        )
-      ]
-    )
+    inOutAnimation
   ]
 })
 export class ModelScreenComponent {
   isLoading = true;
   colorHarmony!: ColorHarmony;
-  bgColors!: any;
+  bgColors;
   neurons;
   state;
 
@@ -48,11 +30,12 @@ export class ModelScreenComponent {
     private readonly s3: S3Service) {
       this.setInitialState();
       this.setColorHarmony();
-      this.s3.getFc1Neurons().pipe(
+      this.s3.getFcNeurons().pipe(
         first(),
         finalize(() => this.isLoading = false)
       ).subscribe(res => {
         console.log(res);
+        
         this.neurons = res;
       });
   }
@@ -62,11 +45,10 @@ export class ModelScreenComponent {
 
     if (this.router.getCurrentNavigation()?.extras.state) {
       this.state = this.router.getCurrentNavigation()?.extras.state;
-      sessionStorage.setItem('model_options', Object.assign({}, this.state))
+      sessionStorage.setItem('model_options', JSON.stringify(this.state))
     } else if (tempOptions) {
-      this.state = Object.assign({}, tempOptions);
+      this.state = JSON.parse(tempOptions);
     }
-    console.log(this.state);
   }
   private setColorHarmony(): void {
     this.colorHarmony = this.colors.getColorHarmony('tetradic') as ColorHarmony;

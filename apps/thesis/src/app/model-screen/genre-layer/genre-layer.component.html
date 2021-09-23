@@ -1,1 +1,8 @@
-<p>genre-layer works!</p>
+<div class="genres">
+    <div *ngFor="let neuron of neurons; let i = index"
+    [class]="i === maxInd ? 'genre max' : 'genre'"
+    [ngStyle]="getGenreWidth(neuron)">
+    <h5>{{neuron.genreName}}</h5>
+    <b>{{neuron.displayValue}}</b>
+    </div>
+</div>

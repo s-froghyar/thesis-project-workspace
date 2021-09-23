@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'somaf-ws-genre-layer',
@@ -7,9 +7,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenreLayerComponent implements OnInit {
 
-  constructor() { }
+  @Input() isSum = false;
+
+  @Input() set neurons(v) {    
+    let currentMaxInd = 0;
+    let currentMaxVal = 0;
+    
+    this._neurons = v.map((el, ind) => { 
+      if (el.compareValue > currentMaxVal) {
+        currentMaxInd = ind;
+        currentMaxVal = el.compareValue;
+      }
+      if (this.isSum) {
+        return {
+          ...el,
+          displayValue: (el.compareValue * 10).toFixed(2).toString(),
+          styleValue: (el.compareValue * 10).toFixed(2).toString() + '%'
+        }
+      }
+      return {
+        ...el,
+        displayValue: (el.compareValue * 100).toFixed(2).toString() + '%',
+        styleValue: (el.compareValue * 1000).toFixed(2).toString() + '%'
+      }
+    });
+    this.maxInd = currentMaxInd;
+    console.log(this._neurons);
+  }
+  get neurons() {
+    return this._neurons;
+  }
+
+  maxInd = 0;
+  private _neurons;
 
   ngOnInit(): void {
+    
+  }
+  getGenreWidth(neuron) {
+    return { width: neuron.styleValue };
   }
 
 }

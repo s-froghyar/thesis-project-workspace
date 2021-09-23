@@ -10,6 +10,8 @@ export class FcLayerComponent implements OnInit {
 
 
   ngOnInit(): void {
+    // console.log(this.neurons);
+    
   }
 
 }

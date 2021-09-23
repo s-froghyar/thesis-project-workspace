@@ -13,7 +13,6 @@ var AppController = /** @class */ (function () {
         this.appService = appService;
     }
     AppController.prototype.getData = function () {
-        console.log('lmaooooo \n\n\n');
         return this.appService.getData();
     };
     __decorate([

@@ -15,7 +15,6 @@ export class S3Service {
         Refion: 'eu-west-2'
       });
     } catch (error) {
-      console.log('lmaoooooooo');
       console.log(error);
       
     }

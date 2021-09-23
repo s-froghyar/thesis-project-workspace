@@ -27,15 +27,32 @@
         </div>
         <div class="" [ngStyle]="{'background': bgColors['fc']}">
             <somaf-ws-fc-layer
-                [neurons]=""
+                [neurons]="neurons['fc1']"
             ></somaf-ws-fc-layer>
         </div>
         <div class="pred-connect connect">
                 <img src="../../../../assets/fc_to_pred.svg">
         </div>
-        <div class=""><somaf-ws-genre-layer></somaf-ws-genre-layer></div>        
+        <div class="genres">
+            <somaf-ws-genre-layer
+                [isSum]="false"
+                [neurons]="neurons['fc2']">
+            </somaf-ws-genre-layer>
+        </div>  
+        <div class="aggregate"></div>
     </div>
-    <div class="sum"></div>
+    <div class="sum" *ngIf="!isLoading">
+        <div class="connect-to-final">
+            <img src="../../assets/sigma.svg" alt="">
+        </div>
+        <div class="genres">
+            <somaf-ws-genre-layer
+                [isSum]="true"
+                [neurons]="neurons['sum']"
+                >
+            </somaf-ws-genre-layer>
+        </div> 
+    </div>
     <div class="loading" *ngIf="isLoading" [@inOutAnimation]>
         <fa-icon  
             [icon]="loadingIcon"
