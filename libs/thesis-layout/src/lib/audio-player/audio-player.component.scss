@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .slider {
+        position: relative;
+        width: 50%;
+        span {
+            position: absolute;
+            right: 0;
+            width: max-content;
+
+            &:first-child {
+                left: 0;
+            }
+        }
+        .time-slider {
+            width: 100% !important;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    }
+}

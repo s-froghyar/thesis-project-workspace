@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ITab, TabType } from '../interfaces/tabs.interface';
-
+import { ITab, TabType } from '@somaf-ws/utils';
 @Component({
   selector: 'somaf-ws-menu-screen',
   templateUrl: './menu-screen.component.html',

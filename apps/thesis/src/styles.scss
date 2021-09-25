@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&display=swap');
+// @import "../../../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Crimson Pro', Roboto, "Helvetica Neue", sans-serif;
     // font-weight: 200;
     font-size: 16px;
     overflow: hidden;
@@ -17,3 +18,25 @@ body {
     left: 0;
     z-index: 10;
 }
+
+
+.mat-primary .mat-slider-track-fill, .mat-primary .mat-slider-thumb, .mat-primary .mat-slider-thumb-label {
+    background-color: red !important;
+}
+.mat-primary .mat-slider-focus-ring {
+    background-color: green !important;
+
+}
+.mat-slider-horizontal .mat-slider-ticks {
+    display: none;
+    // background: yellow !important;
+}
+.mat-slider-track-background {
+    background: turquoise;
+}
+.mat-slider:hover .mat-slider-track-background, .mat-slider.cdk-focused .mat-slider-track-background {
+    background: grey;
+}
+// .mat-slider-horizontal .mat-slider-track-background, .mat-slider-track-fill, .mat-slider-thumb-container {
+//     transition: none;
+// }

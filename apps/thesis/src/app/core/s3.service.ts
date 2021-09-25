@@ -1,10 +1,9 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { sortWithIndices } from "@somaf-ws/utils";
+import { SettingOption, sortWithIndices, ModelState, AudioMetadata } from "@somaf-ws/utils";
 import { combineLatest, Observable, throwError } from "rxjs";
 import { catchError, first, map } from "rxjs/operators";
-
 
 
 
@@ -12,13 +11,14 @@ import { catchError, first, map } from "rxjs/operators";
     providedIn: 'root'
   })
 export class S3Service {
+    private _root = 'https://mgr-thesis-bucket.s3.eu-west-2.amazonaws.com/static';
     private _sampleUrl!: string;
-    private _state;
+    private _state!: ModelState;
 
-    get state() {
+    get state(): ModelState {
         return this._state;
     }
-    set state(v) {
+    set state(v: ModelState) {
         this._state = v;
     }
 
@@ -37,6 +37,13 @@ export class S3Service {
     getSampleResultsUrl(): string {
         return this._sampleUrl;
     }
+    getSampleAudioMetadata(): AudioMetadata {
+        return {
+            title: this.state.sampleFile.name,
+            url: `${this._root}/samples/mp3/${this.state.sampleFile.id}.00000.mp3`
+        };
+    }
+
     getFcNeurons(): Observable<Response> {
         return combineLatest([
                 this.http.get(`${this.getSampleResultsUrl()}/fc.json`),
@@ -49,10 +56,9 @@ export class S3Service {
     }
 
     setModelChoices(choices): void {
-        const root = 'https://mgr-thesis-bucket.s3.eu-west-2.amazonaws.com/static/sample_results';
         this._sampleUrl = choices.model.id === 'no_aug'
-            ? `${root}/${choices.sampleFile.id}_no_aug`
-            : `${root}/${choices.sampleFile.id}_${choices.model.id}_${choices.transform.id}`;
+            ? `${this._root}/sample_results/${choices.sampleFile.id}_no_aug`
+            : `${this._root}/sample_results/${choices.sampleFile.id}_${choices.model.id}_${choices.transform.id}`;
         sessionStorage.setItem('model_options', JSON.stringify(choices));
         this.state = Object.assign({}, choices);
     }

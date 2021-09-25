@@ -10,11 +10,14 @@ import { TpComponent } from "./layout/menu-screen/tp/tp.component";
 import { AugerinoComponent } from "./layout/menu-screen/augerino/augerino.component";
 import { AugmentationsComponent } from "./layout/menu-screen/augmentations/augmentations.component";
 import { BaselineComponent } from "./layout/menu-screen/baseline/baseline.component";
+import { AudioPlayerComponent } from './audio-player/audio-player.component';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   imports: [
     CommonModule,
     FontAwesomeModule,
+    MatSliderModule,
     ModalModule.forRoot(),
     TabsModule.forRoot(),
   ],
@@ -26,7 +29,8 @@ import { BaselineComponent } from "./layout/menu-screen/baseline/baseline.compon
     AugerinoComponent,
     AugmentationsComponent,
     BaselineComponent,
+    AudioPlayerComponent,
   ],
-  exports: [LayoutComponent],
+  exports: [LayoutComponent, AudioPlayerComponent],
 })
 export class ThesisLayoutModule {}

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { faCompressAlt, faExpandAlt, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { ColorHarmony } from '@somaf-ws/color-harmonies';
-import { collapseAnimation, inOutAnimation } from '@somaf-ws/utils';
+import { AudioMetadata, collapseAnimation, inOutAnimation } from '@somaf-ws/utils';
 import { finalize, first } from 'rxjs/operators';
 
 import { ColorPaletteService } from '../core/color-palette.service';
@@ -19,19 +19,21 @@ export class ModelScreenComponent {
   bgColors;
   neurons;
   state;
-  isExpanded = false;
+  isExpanded = !false;
 
   fullImgUrl!: string;
+  audioMetaData: AudioMetadata = {title: 'Sample audio title', url: ''};
 
   loadingIcon = faSpinner;
   expandIcon = faExpandAlt;
   collapseIcon = faCompressAlt;
   constructor(
     public readonly colors: ColorPaletteService,
-    private readonly s3: S3Service
+    readonly s3: S3Service
   ) {
       this.s3.initModel();
       this.fullImgUrl = this.s3.getSampleResultsUrl() + '/full.jpg';
+      this.audioMetaData = this.s3.getSampleAudioMetadata();
       this.setColorHarmony();
       this.setFcNeurons();
   }

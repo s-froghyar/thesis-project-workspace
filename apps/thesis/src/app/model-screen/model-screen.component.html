@@ -1,7 +1,7 @@
 <div class="model-screen-container">
     <div [class]="!isExpanded ? 'full hidden' : 'full'">
         <img class="spec" [src]="fullImgUrl" alt="full spectrogram">
-        <img src="../../assets/patches.svg" alt="full spectrogram">
+        <img class="back" src="../../assets/patches.svg" alt="patches background">
     </div>
     <div class="inner-model" *ngIf="!isLoading" [@collapse]="isExpanded">
         <div class="section" [ngStyle]="{'background': bgColors['bl']['input']}">
@@ -66,5 +66,8 @@
     <div class="expand-btn" (click)="toggleExpand()" >
         <fa-icon [icon]="expandIcon" *ngIf="!isExpanded" size="2x"></fa-icon>
         <fa-icon [icon]="collapseIcon" *ngIf="isExpanded" size="2x"></fa-icon>
+    </div>
+    <div class="audio" *ngIf="!isLoading">
+        <thesis-audio-player [meta]="audioMetaData"></thesis-audio-player>
     </div>
 </div>

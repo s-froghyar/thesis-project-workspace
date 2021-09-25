@@ -107,6 +107,7 @@
               "apps/thesis/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "apps/thesis/src/styles.scss"
             ],
             "scripts": []
