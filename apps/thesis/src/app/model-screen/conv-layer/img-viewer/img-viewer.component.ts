@@ -29,7 +29,6 @@ export class ImgViewerComponent implements OnInit {
     this.initUrls();    
   }
   initUrls(): void {
-
     if (this.layer === 'in') {
       this.currentUrl = `${this.baseUrl}/in.jpg`;
       this.prevUrl = '';

@@ -3,18 +3,20 @@
     height: 93vh;
     width: 100vw;
     overflow: hidden;
-    background-color: #4D4D4D;
+    // background-color: #4D4D4D;
+    background: radial-gradient(circle, rgba(101,164,144,1) 15%, rgba(47,79,79,1) 85%);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 1rem;
     .inner-model {
         position: relative;
         display: flex;
         width: 60%;
         height: 60%;
         background-color: #2f4f4f;
-        transition: all 0.5s ease-in-out;   
+        -webkit-box-shadow: 0px 0px 5px 10px #2F4F4F; 
+        box-shadow: 0px 0px 5px 10px #2F4F4F;
+        // transition: all 0.5s ease-in-out;   
         .section {
             width: 15%;
             height: 100%;
@@ -58,11 +60,29 @@
         }
     }
     .full, .sum {
-        width: 10%;
-        height: 60%;
+        width: 30%;
+        height: calc(100% - 2rem);
         margin-right: 2rem;
         margin-left: 2rem;
         background-color: transparent;
+        &.hidden {
+            display: none;
+        }
+    }
+    .full {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            width: 100%;
+            &.spec {
+                position: absolute;
+                top: 45%;
+                left: 0;
+                width: 50%;
+            }
+        }
     }
     .sum {
         display: flex;
@@ -91,5 +111,11 @@
         align-items: center;
         background: gray;
         opacity: 0.5;
+    }
+    .expand-btn {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        cursor: pointer;
     }
 }

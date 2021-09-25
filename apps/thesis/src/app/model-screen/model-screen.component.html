@@ -1,6 +1,9 @@
 <div class="model-screen-container">
-    <div class="full"></div>
-    <div class="inner-model" *ngIf="!isLoading">
+    <div [class]="!isExpanded ? 'full hidden' : 'full'">
+        <img class="spec" [src]="fullImgUrl" alt="full spectrogram">
+        <img src="../../assets/patches.svg" alt="full spectrogram">
+    </div>
+    <div class="inner-model" *ngIf="!isLoading" [@collapse]="isExpanded">
         <div class="section" [ngStyle]="{'background': bgColors['bl']['input']}">
             <somaf-ws-conv-layer
                 title="In"
@@ -41,7 +44,7 @@
         </div>  
         <div class="aggregate"></div>
     </div>
-    <div class="sum" *ngIf="!isLoading">
+    <div [class]="!isExpanded ? 'sum hidden' : 'sum'" *ngIf="!isLoading">
         <div class="connect-to-final">
             <img src="../../assets/sigma.svg" alt="">
         </div>
@@ -59,5 +62,9 @@
             [spin]="true"
             size="4x"
         ></fa-icon>
+    </div>
+    <div class="expand-btn" (click)="toggleExpand()" >
+        <fa-icon [icon]="expandIcon" *ngIf="!isExpanded" size="2x"></fa-icon>
+        <fa-icon [icon]="collapseIcon" *ngIf="isExpanded" size="2x"></fa-icon>
     </div>
 </div>

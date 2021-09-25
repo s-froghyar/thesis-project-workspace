@@ -1,47 +1,41 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { sampleFiles } from "@somaf-ws/utils";
+import { Router } from "@angular/router";
+import { sortWithIndices } from "@somaf-ws/utils";
 import { combineLatest, Observable, throwError } from "rxjs";
 import { catchError, first, map } from "rxjs/operators";
 
-function sortWithIndices(toSort, isFinalLayer = false) {
-    const indexedTest = toSort.map(function(e,i){return {ind: i, val: e}});
-    const genreOrder = sampleFiles;
-    indexedTest.sort((x, y) => x.val > y.val ? 1 : x.val == y.val ? 0 : -1);
-    console.log(indexedTest);
-    
-    const out = new Array(10);
 
-    let opValue = 0.3;
-    indexedTest.forEach((el, i) => {
-        const strVal = el.val.toString();
-
-        const displayValue = isFinalLayer 
-            ? (el.val * 10).toFixed(2)
-            : `${strVal[0]}.${strVal.slice(-2)}`;
-        out[el.ind] = {
-            displayValue,
-            compareValue: el.val,
-            opacity: opValue,
-            genreName: genreOrder[el.ind].name
-        }
-
-        opValue += 0.05;
-    });
-    return out;
-}
 
 
 @Injectable({
     providedIn: 'root'
   })
 export class S3Service {
-    constructor(private readonly http: HttpClient) {}
-    getSampleResultsUrl(): string {
-        return 'https://mgr-thesis-bucket.s3.eu-west-2.amazonaws.com/static/sample_results/blues_augerino_ni';
+    private _sampleUrl!: string;
+    private _state;
+
+    get state() {
+        return this._state;
     }
-    getStaticUrl(): string {
-        return 'https://mgr-thesis-bucket.s3.eu-west-2.amazonaws.com/static';
+    set state(v) {
+        this._state = v;
+    }
+
+    constructor(private readonly http: HttpClient) {}
+
+
+    initModel(): boolean {
+        if (!this._sampleUrl) {
+            const choices = JSON.parse(sessionStorage.getItem('model_options') as string) ?? {};
+            this.setModelChoices(choices);
+            return choices?.model ? true : false;
+        }
+        return true;
+    }
+
+    getSampleResultsUrl(): string {
+        return this._sampleUrl;
     }
     getFcNeurons(): Observable<Response> {
         return combineLatest([
@@ -53,6 +47,16 @@ export class S3Service {
                 catchError(this.handleError)
             );
     }
+
+    setModelChoices(choices): void {
+        const root = 'https://mgr-thesis-bucket.s3.eu-west-2.amazonaws.com/static/sample_results';
+        this._sampleUrl = choices.model.id === 'no_aug'
+            ? `${root}/${choices.sampleFile.id}_no_aug`
+            : `${root}/${choices.sampleFile.id}_${choices.model.id}_${choices.transform.id}`;
+        sessionStorage.setItem('model_options', JSON.stringify(choices));
+        this.state = Object.assign({}, choices);
+    }
+
     private handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
           console.error("An error occurred:", error.error.message);
@@ -61,7 +65,6 @@ export class S3Service {
             `Backend returned code ${error.status}, ` + `body was: ${error.error}`
           );
         }
-        // return an observable with a user-facing error message
         return throwError(error);
     }
     private extractData(res: any): any {

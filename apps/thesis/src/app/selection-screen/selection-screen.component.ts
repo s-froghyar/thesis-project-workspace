@@ -32,15 +32,17 @@ export class SelectionScreenComponent implements OnInit {
   ngOnInit(): void {
     const complColor = this.colors.getColorHarmony('split-complementary')?.secondary;
     if (complColor) {
-      this.pageColor = `hsl(${complColor.hue}, ${complColor.saturation}%, ${complColor.light}%)`
+      this.pageColor = `hsl(${complColor.hue}, ${complColor.saturation}%, ${complColor.light}%)`;
     }
   }
   submit(): void {
-    this.router.navigate(['model'], { state: {
+    this.s3.setModelChoices(
+      {
         sampleFile: this.fg.controls['sampleFile'].value,
         model: this.fg.controls['model'].value,
         transform: this.fg.controls['transform'].value,
       }
-    });
+    )    
+    this.router.navigate(['model']);
   }
 }

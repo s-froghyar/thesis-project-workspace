@@ -1,12 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'somaf-ws-genre-layer',
   templateUrl: './genre-layer.component.html',
   styleUrls: ['./genre-layer.component.scss']
 })
-export class GenreLayerComponent implements OnInit {
-
+export class GenreLayerComponent {
   @Input() isSum = false;
 
   @Input() set neurons(v) {    
@@ -32,7 +31,6 @@ export class GenreLayerComponent implements OnInit {
       }
     });
     this.maxInd = currentMaxInd;
-    console.log(this._neurons);
   }
   get neurons() {
     return this._neurons;
@@ -41,9 +39,6 @@ export class GenreLayerComponent implements OnInit {
   maxInd = 0;
   private _neurons;
 
-  ngOnInit(): void {
-    
-  }
   getGenreWidth(neuron) {
     return { width: neuron.styleValue };
   }

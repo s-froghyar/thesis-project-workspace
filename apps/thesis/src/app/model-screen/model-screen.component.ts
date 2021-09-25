@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faCompressAlt, faExpandAlt, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { ColorHarmony } from '@somaf-ws/color-harmonies';
+import { collapseAnimation, inOutAnimation } from '@somaf-ws/utils';
 import { finalize, first } from 'rxjs/operators';
-import { inOutAnimation } from '../core/animations';
 
 import { ColorPaletteService } from '../core/color-palette.service';
 import { S3Service } from '../core/s3.service';
@@ -12,9 +11,7 @@ import { S3Service } from '../core/s3.service';
   selector: 'somaf-ws-model-screen',
   templateUrl: './model-screen.component.html',
   styleUrls: ['./model-screen.component.scss'],
-  animations: [
-    inOutAnimation
-  ]
+  animations: [ inOutAnimation, collapseAnimation ]
 })
 export class ModelScreenComponent {
   isLoading = true;
@@ -22,34 +19,26 @@ export class ModelScreenComponent {
   bgColors;
   neurons;
   state;
+  isExpanded = false;
+
+  fullImgUrl!: string;
 
   loadingIcon = faSpinner;
+  expandIcon = faExpandAlt;
+  collapseIcon = faCompressAlt;
   constructor(
     public readonly colors: ColorPaletteService,
-    private readonly router: Router,
-    private readonly s3: S3Service) {
-      this.setInitialState();
+    private readonly s3: S3Service
+  ) {
+      this.s3.initModel();
+      this.fullImgUrl = this.s3.getSampleResultsUrl() + '/full.jpg';
       this.setColorHarmony();
-      this.s3.getFcNeurons().pipe(
-        first(),
-        finalize(() => this.isLoading = false)
-      ).subscribe(res => {
-        console.log(res);
-        
-        this.neurons = res;
-      });
+      this.setFcNeurons();
+  }
+  toggleExpand(): void {
+    this.isExpanded = !this.isExpanded;
   }
 
-  private setInitialState(): void {
-    const tempOptions = sessionStorage.getItem('model_options');
-
-    if (this.router.getCurrentNavigation()?.extras.state) {
-      this.state = this.router.getCurrentNavigation()?.extras.state;
-      sessionStorage.setItem('model_options', JSON.stringify(this.state))
-    } else if (tempOptions) {
-      this.state = JSON.parse(tempOptions);
-    }
-  }
   private setColorHarmony(): void {
     this.colorHarmony = this.colors.getColorHarmony('tetradic') as ColorHarmony;
     this.bgColors = {
@@ -67,5 +56,10 @@ export class ModelScreenComponent {
       }
       
     } 
+  }
+  private setFcNeurons(): void {
+    this.s3.getFcNeurons()
+      .pipe( first(), finalize(() => this.isLoading = false)).subscribe(
+        res => this.neurons = res);
   }
 }
