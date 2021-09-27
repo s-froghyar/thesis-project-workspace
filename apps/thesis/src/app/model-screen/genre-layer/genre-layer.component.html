@@ -1,8 +1,22 @@
-<div class="genres">
+<div class="genres" *ngIf="!isSum">
     <div *ngFor="let neuron of neurons; let i = index"
     [class]="i === maxInd ? 'genre max' : 'genre'"
-    [ngStyle]="getGenreWidth(neuron)">
+    [ngStyle]="{ width: neuron.styleValue }">
     <h5>{{neuron.genreName}}</h5>
     <b>{{neuron.displayValue}}</b>
+    </div>
+</div>
+<div class="top3" *ngIf="isSum">
+    <div class="second">
+        <span>{{topThree[1].genreName}}</span>
+        <b>{{topThree[1].displayValue}}</b>
+    </div>
+    <div class="first">
+        <span>{{topThree[0].genreName}}</span>
+        <b>{{topThree[0].displayValue}}</b>
+    </div>
+    <div class="third">
+        <span>{{topThree[2].genreName}}</span>
+        <b>{{topThree[2].displayValue}}</b>
     </div>
 </div>

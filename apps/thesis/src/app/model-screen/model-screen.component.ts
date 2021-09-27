@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { faCompressAlt, faExpandAlt, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { ColorHarmony } from '@somaf-ws/color-harmonies';
-import { AudioMetadata, collapseAnimation, inOutAnimation } from '@somaf-ws/utils';
+import { AudioMetadata, bringUpPlayer, collapseAnimation, edgeContentReveal, inOutAnimation, ModelNeurons } from '@somaf-ws/utils';
 import { finalize, first } from 'rxjs/operators';
 
 import { ColorPaletteService } from '../core/color-palette.service';
@@ -11,15 +11,15 @@ import { S3Service } from '../core/s3.service';
   selector: 'somaf-ws-model-screen',
   templateUrl: './model-screen.component.html',
   styleUrls: ['./model-screen.component.scss'],
-  animations: [ inOutAnimation, collapseAnimation ]
+  animations: [ inOutAnimation, collapseAnimation, edgeContentReveal, bringUpPlayer ]
 })
 export class ModelScreenComponent {
   isLoading = true;
   colorHarmony!: ColorHarmony;
   bgColors;
-  neurons;
+  neurons!: ModelNeurons;
   state;
-  isExpanded = !false;
+  isExpanded = false;
 
   fullImgUrl!: string;
   audioMetaData: AudioMetadata = {title: 'Sample audio title', url: ''};

@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { SettingOption, sortWithIndices, ModelState, AudioMetadata } from "@somaf-ws/utils";
+import { SettingOption, sortWithIndices, ModelState, AudioMetadata, ModelNeurons } from "@somaf-ws/utils";
 import { combineLatest, Observable, throwError } from "rxjs";
 import { catchError, first, map } from "rxjs/operators";
 
@@ -44,13 +45,13 @@ export class S3Service {
         };
     }
 
-    getFcNeurons(): Observable<Response> {
+    getFcNeurons(): Observable<ModelNeurons> {
         return combineLatest([
                 this.http.get(`${this.getSampleResultsUrl()}/fc.json`),
                 this.http.get(`${this.getSampleResultsUrl()}/final_result.json`)]
             ).pipe(
-                first(),
                 map(this.extractData),
+                first(),
                 catchError(this.handleError)
             );
     }
@@ -73,7 +74,7 @@ export class S3Service {
         }
         return throwError(error);
     }
-    private extractData(res: any): any {
+    private extractData(res: any): ModelNeurons {
         let fc1 = res[0]['fc1'];
         let fc2 = res[0]['fc2'];
         let sum = res[1]['sum_rule_res'].map(el => parseFloat(el + '0'));
@@ -84,7 +85,7 @@ export class S3Service {
         fc1 = sortWithIndices(fc1);
         fc2 = sortWithIndices(fc2, true);
         sum = sortWithIndices(sum, true);
-        
+        console.log({ fc1, fc2, sum });
         return { fc1, fc2, sum };
       }    
 }

@@ -1,3 +1,58 @@
+@media screen and (min-width: 900px) {
+    .model-screen-container {
+        .inner-model {
+            // .fc1-connect { width: 70px !important; }
+            &.collapsed {
+                .connect {
+                    &.pred-connect { width: 105px !important }
+                    &.fc1-connect { width: 75px; } 
+                }
+            }
+            &:not(.collapsed) {
+                .connect {
+                    &.pred-connect { width: 135px !important }
+                    &.fc1-connect { width: 90px; } 
+                        
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .model-screen-container {
+        .inner-model {
+            &.collapsed {
+                .connect {
+                    &.pred-connect { width: 108px !important }
+                    &.fc1-connect { width: 70px; } 
+                }
+                .genres { width: 120px; }
+            }
+            &:not(.collapsed) {
+                .connect {
+                    &.pred-connect { width: 138px !important }
+                    &.fc1-connect { width: 100px } 
+                }
+                .genres { width: 225px; }
+            }
+        }
+    }
+}
+
+// @media screen and (min-width: 1200px) {
+//     .model-screen-container {
+//         .inner-model {
+//             .connect {
+//                 width: 11%;
+//                 &.pred-connect { width: 108px }
+//             }
+//         }
+//     }
+// }
+
+
+
 .model-screen-container {
     position: relative;
     height: 93vh;
@@ -11,7 +66,8 @@
     .inner-model {
         position: relative;
         display: flex;
-        width: 60%;
+        justify-content: center;
+        width: calc(100% - 800px);
         height: 60%;
         background-color: #2f4f4f;
         -webkit-box-shadow: 0px 0px 5px 10px #2F4F4F; 
@@ -20,70 +76,73 @@
         .section {
             width: 15%;
             height: 100%;
+            z-index: 1;
             transform: skewX(-5deg);
-            transition: all .5s ease-in-out;
+            transition: all 0.5s ease-in-out;
     
-            &:first-child {
-                margin-left: 4%;
-            }
             &:hover {
-                width: 30%;
+                width: 20%;
             }
         }
         .connect {
             position: relative;
-            width: 11%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             z-index: 1;
-            &.fc1-connect img {
-                position: absolute;
-                left:-20px;
-                width: 116%;
-                max-height: 69%;
-                z-index: -1;
+            transition: all 0.5s ease-in-out;
+
+            &.fc1-connect {
+                width: 90px;
+                z-index: 0;
+                img {
+                    position: absolute;
+                    left: -10px;
+                    width: 125%;
+                    // max-height: 69%;
+                    // z-index: -1;
+                }
             }
             &.pred-connect {
-                width: 15%;
+                width: 90px;
             }
         }
         .genres {
             width: 10%;
-        }
-        .aggregate {
-            height: 100%;
-            width: 7%;
-            border-top: 1px solid #c3c3c3;
-            border-right: 1px solid #c3c3c3;
-            border-bottom: 1px solid #c3c3c3;
+            transition: all 0.5s ease-in-out; 
         }
     }
     .full, .sum {
-        width: 30%;
+        // max-width: 400px;
         height: calc(100% - 2rem);
-        margin-right: 2rem;
-        margin-left: 2rem;
+        // margin-right: 2rem;
+        // margin-left: 2rem;
         background-color: transparent;
-        &.hidden {
-            display: none;
-        }
+        display: block;
+        // width: 50%;
+        transition: all 0.5s ease-in-out;
+        // &.hidden {
+        //     display: none;
+        // }
     }
     .full {
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
+        z-index: 0;
         img {
             // width: 100%;
             &.spec {
                 position: absolute;
                 top: 45%;
                 left: 0;
-                width: 50%;
+                max-height: 10%;
+                // z-index: 0;
             }
             &.back {
                 height: 100%;
+                z-index: 1;
             }
         }
     }
@@ -101,6 +160,11 @@
                 // width: 50px;
                 height: 100%;
             }
+        }
+        .sum-genres {
+            width: 100%;
+            display: flex;
+            align-items: center;
         }
     }
     .loading {

@@ -1,9 +1,10 @@
 <div class="model-screen-container">
-    <div [class]="!isExpanded ? 'full hidden' : 'full'">
+    <div class="full" [@edgeContentReveal]="isExpanded">
         <img class="spec" [src]="fullImgUrl" alt="full spectrogram">
         <img class="back" src="../../assets/patches.svg" alt="patches background">
     </div>
-    <div class="inner-model" *ngIf="!isLoading" [@collapse]="isExpanded">
+    <div [class]="isExpanded ? 'inner-model collapsed' : 'inner-model'"
+        *ngIf="!isLoading" [@collapse]="isExpanded">
         <div class="section" [ngStyle]="{'background': bgColors['bl']['input']}">
             <somaf-ws-conv-layer
                 title="In"
@@ -31,6 +32,7 @@
         <div class="" [ngStyle]="{'background': bgColors['fc']}">
             <somaf-ws-fc-layer
                 [neurons]="neurons['fc1']"
+                [isCollapsed]="isExpanded"
             ></somaf-ws-fc-layer>
         </div>
         <div class="pred-connect connect">
@@ -42,13 +44,12 @@
                 [neurons]="neurons['fc2']">
             </somaf-ws-genre-layer>
         </div>  
-        <div class="aggregate"></div>
     </div>
-    <div [class]="!isExpanded ? 'sum hidden' : 'sum'" *ngIf="!isLoading">
+    <div class="sum" [@edgeContentReveal]="isExpanded">
         <div class="connect-to-final">
             <img src="../../assets/sigma.svg" alt="">
         </div>
-        <div class="genres">
+        <div class="sum-genres" *ngIf="!isLoading">
             <somaf-ws-genre-layer
                 [isSum]="true"
                 [neurons]="neurons['sum']"
@@ -67,7 +68,7 @@
         <fa-icon [icon]="expandIcon" *ngIf="!isExpanded" size="2x"></fa-icon>
         <fa-icon [icon]="collapseIcon" *ngIf="isExpanded" size="2x"></fa-icon>
     </div>
-    <div class="audio" *ngIf="!isLoading">
+    <div class="audio" *ngIf="!isLoading" [@bringUpPlayer]="!isExpanded">
         <thesis-audio-player [meta]="audioMetaData"></thesis-audio-player>
     </div>
 </div>

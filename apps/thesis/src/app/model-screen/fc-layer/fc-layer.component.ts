@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Neuron } from '@somaf-ws/utils';
 
 @Component({
   selector: 'somaf-ws-fc-layer',
@@ -6,12 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./fc-layer.component.scss']
 })
 export class FcLayerComponent implements OnInit {
-  @Input() neurons;
+  @Input() neurons!: Neuron[];
+  @Input() isCollapsed!: boolean;
 
 
   ngOnInit(): void {
     // console.log(this.neurons);
-    
   }
 
 }
