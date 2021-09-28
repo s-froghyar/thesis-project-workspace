@@ -5,20 +5,17 @@
     align-items: center;
     .slider {
         position: relative;
-        width: 50%;
+        width: 60%;
         span {
             position: absolute;
             right: 0;
+            bottom: 0;
             width: max-content;
 
-            &:first-child {
-                left: 0;
-            }
+            &:first-child { left: 0 }
         }
         .time-slider {
             width: 100% !important;
-            margin-left: 20px;
-            margin-right: 20px;
         }
     }
 }

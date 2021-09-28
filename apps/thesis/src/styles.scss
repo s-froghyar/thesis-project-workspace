@@ -12,16 +12,16 @@ body {
 }
 .menu-modal {
     width: 100%;
-    height: 93vh;
+    height: 100vh;
     position: absolute;
-    top: 7vh;
+    top: 0;
     left: 0;
     z-index: 10;
 }
 
 
 .mat-primary .mat-slider-track-fill, .mat-primary .mat-slider-thumb, .mat-primary .mat-slider-thumb-label {
-    background-color: red !important;
+    background-color: #c3c3c3 !important;
 }
 .mat-primary .mat-slider-focus-ring {
     background-color: green !important;
@@ -32,10 +32,10 @@ body {
     // background: yellow !important;
 }
 .mat-slider-track-background {
-    background: turquoise;
+    background: #b5b5b5;
 }
 .mat-slider:hover .mat-slider-track-background, .mat-slider.cdk-focused .mat-slider-track-background {
-    background: grey;
+    background: rgb(150, 150, 150);
 }
 // .mat-slider-horizontal .mat-slider-track-background, .mat-slider-track-fill, .mat-slider-thumb-container {
 //     transition: none;

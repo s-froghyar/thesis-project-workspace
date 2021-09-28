@@ -1,25 +1,28 @@
 <div class="model-screen-container">
     <div class="full" [@edgeContentReveal]="isExpanded">
-        <img class="spec" [src]="fullImgUrl" alt="full spectrogram">
+        <div class="grid">
+            <img src="../../assets/full-frame.svg" alt="" class="frame">
+            <img class="spec" [src]="fullImgUrl" alt="full spectrogram">
+        </div>
         <img class="back" src="../../assets/patches.svg" alt="patches background">
     </div>
     <div [class]="isExpanded ? 'inner-model collapsed' : 'inner-model'"
         *ngIf="!isLoading" [@collapse]="isExpanded">
-        <div class="section" [ngStyle]="{'background': bgColors['bl']['input']}">
+        <div class="section" [class.shrink]="!isExpanded" [ngStyle]="{'background': bgColors['bl']['input']}">
             <somaf-ws-conv-layer
                 title="In"
                 layer="in"
                 [bgColor]="bgColors['tr']['input']">
             </somaf-ws-conv-layer>
         </div>
-        <div class="section" [ngStyle]="{'background': bgColors['bl']['conv1']}">
+        <div class="section" [class.shrink]="!isExpanded" [ngStyle]="{'background': bgColors['bl']['conv1']}">
             <somaf-ws-conv-layer
                 title="Conv1"
                 layer="conv1"
                 [bgColor]="bgColors['tr']['conv1']"
             ></somaf-ws-conv-layer>
         </div>
-        <div class="section" [ngStyle]="{'background': bgColors['bl']['conv2']}">
+        <div class="section" [class.shrink]="!isExpanded" [ngStyle]="{'background': bgColors['bl']['conv2']}">
             <somaf-ws-conv-layer
                 title="Conv2"
                 layer="conv2"
@@ -29,21 +32,25 @@
         <div class="fc1-connect connect">
                 <img src="../../../../assets/conv_to_fc.svg">
         </div>
-        <div class="" [ngStyle]="{'background': bgColors['fc']}">
+        <div class="fc1" [class.shrink]="!isExpanded" [ngStyle]="{'background': bgColors['fc']}">
             <somaf-ws-fc-layer
                 [neurons]="neurons['fc1']"
                 [isCollapsed]="isExpanded"
             ></somaf-ws-fc-layer>
         </div>
-        <div class="pred-connect connect">
+        <div class="pred-connect connect" [class.shrink]="!isExpanded">
                 <img src="../../../../assets/fc_to_pred.svg">
         </div>
-        <div class="genres">
+        <div class="genres" [class.shrink]="!isExpanded">
             <somaf-ws-genre-layer
                 [isSum]="false"
                 [neurons]="neurons['fc2']">
             </somaf-ws-genre-layer>
-        </div>  
+        </div>
+        <div [class]="isExpanded ? 'expand-btn' : 'expand-btn shifted'" (click)="toggleExpand()" >
+            <fa-icon [icon]="expandIcon" *ngIf="!isExpanded" size="2x"></fa-icon>
+            <fa-icon [icon]="collapseIcon" *ngIf="isExpanded" size="2x"></fa-icon>
+        </div>
     </div>
     <div class="sum" [@edgeContentReveal]="isExpanded">
         <div class="connect-to-final">
@@ -63,10 +70,6 @@
             [spin]="true"
             size="4x"
         ></fa-icon>
-    </div>
-    <div class="expand-btn" (click)="toggleExpand()" >
-        <fa-icon [icon]="expandIcon" *ngIf="!isExpanded" size="2x"></fa-icon>
-        <fa-icon [icon]="collapseIcon" *ngIf="isExpanded" size="2x"></fa-icon>
     </div>
     <div class="audio" *ngIf="!isLoading" [@bringUpPlayer]="!isExpanded">
         <thesis-audio-player [meta]="audioMetaData"></thesis-audio-player>

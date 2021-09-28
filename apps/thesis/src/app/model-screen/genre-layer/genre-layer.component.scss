@@ -9,26 +9,34 @@
     justify-content: center;
     
     .genre {
-        min-width: 10px;
+        
         height: 100%;
-        margin-left: 0;
-        margin-right: 0;
+        margin: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(0deg, 
-            rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.2) 38%,
-            rgba(255, 255, 255, 0.2) 48%,
-            rgba(255, 255, 255, 0) 100%);
+        position: relative;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        
         &.max {
             border: 3px solid rgba(255, 255, 255, 0.2);
         }
         h5 {
             margin-top: 0;
             margin-bottom: 0.5rem;
+        }
+        .filler {
+            position: absolute;
+            left: 0;
+            height: 100%;
+            min-width: 5px;
+            background: linear-gradient(0deg, 
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.2) 38%,
+            rgba(255, 255, 255, 0.2) 48%,
+            rgba(255, 255, 255, 0) 100%);
         }
     }
 }

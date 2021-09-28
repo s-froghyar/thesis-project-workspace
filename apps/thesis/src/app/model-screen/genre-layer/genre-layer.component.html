@@ -1,9 +1,9 @@
 <div class="genres" *ngIf="!isSum">
     <div *ngFor="let neuron of neurons; let i = index"
-    [class]="i === maxInd ? 'genre max' : 'genre'"
-    [ngStyle]="{ width: neuron.styleValue }">
+    [class]="i === maxInd ? 'genre max' : 'genre'">
     <h5>{{neuron.genreName}}</h5>
     <b>{{neuron.displayValue}}</b>
+    <div class="filler" [ngStyle]="{ width: neuron.styleValue }"></div>
     </div>
 </div>
 <div class="top3" *ngIf="isSum">

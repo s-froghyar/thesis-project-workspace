@@ -24,7 +24,7 @@ export const collapseAnimation = trigger(
     'collapse',
     [
         state('false', style({ width: '100%', height: '100%' })),
-        state('true', style({ width: '60%', height: '70%' })),
+        state('true', style({ width: '55%', height: '60%' })),
         transition('false => true', animate('500ms ease-in')),
         transition('true => false', animate('500ms ease-out'))
     ]
