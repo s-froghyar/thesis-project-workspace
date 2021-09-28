@@ -5,13 +5,13 @@
             &.collapsed {
                 .connect {
                     &.pred-connect { width: 105px !important }
-                    &.fc1-connect { width: 75px; } 
+                    &.fc1-connect { width: 70px; } 
                 }
             }
             &:not(.collapsed) {
                 .connect {
                     &.pred-connect { width: 135px !important }
-                    &.fc1-connect { width: 90px; } 
+                    &.fc1-connect { width: 85px; } 
                         
                 }
             }
@@ -109,15 +109,19 @@
             }
             &.fc1-connect {
                 width: 90px;
+                max-height: 100%;
                 z-index: 0;
                 img {
                     position: absolute;
                     left: -10px;
                     width: 125%;
+                    max-height: 100%;
                 }
             }
             &.pred-connect {
+                max-height: 100%;
                 width: 90px;
+                img { height: 100%; }
             }
         }
         .genres {

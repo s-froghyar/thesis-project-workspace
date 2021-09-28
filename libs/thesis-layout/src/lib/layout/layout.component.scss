@@ -4,15 +4,10 @@
     z-index: 2;
     display: flex;
     justify-content: center;
-    align-items: center;
-
+    align-items: flex-start;
     width: 100vw;
     height: 12vh;
-    // background: radial-gradient(
-    //     circle closest-corner at center 125px,
-    //     rgb(87, 87, 87),
-    //     black 40%
-    // ) no-repeat;
+
     .menu-container {
         position: absolute;
         left: 0;
@@ -26,6 +21,7 @@
     .title {
         width: 60%;
         margin: 0;
+        padding: 1rem;
         text-align: center;
         font-size: 21px;
         background: radial-gradient(
@@ -41,6 +37,7 @@
     .socials {
         position: absolute;
         right: 0;
+        top: 0;
         padding: 1rem;
         fa-icon {
             cursor: pointer;
@@ -49,16 +46,3 @@
         }
     }
 }
-// .strip {
-//     width: 100%;
-//     height: 6px;
-//     background: linear-gradient(
-//         180deg,
-//         rgb(0, 0, 0) 0%,
-//         #F0F0F0 100%
-//     ) no-repeat;
-//     box-shadow: #F0F0F0 0px 0px 30px 0px;
-//     z-index: 10;
-//     position: absolute;
-//     top: calc(7vh - 6px);
-// }
