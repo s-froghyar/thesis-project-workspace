@@ -1,4 +1,11 @@
 <div class="container">
+    <h1 class="title">
+        Robust Deep Learning for Music Genre Classification using Augmentation Techniques<br/>
+        by SomaF
+    </h1>
+    <div class="close-btn" (click)="closeMenu()">
+        <fa-icon [icon]="closeIcon" size="2x"></fa-icon>
+    </div>
     <div class="tabs">
         <div *ngFor="let tab of tabs; let i = index"
             [ngClass]="tab.selected ? 'tab active' : 'tab'"
