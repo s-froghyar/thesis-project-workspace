@@ -1,0 +1,36 @@
+:host {
+    height: calc(100% - 2rem);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+    height: 55%;
+    .col {
+        width: 50%;
+        height: 100%;
+        overflow-y: auto;
+        padding: 1rem;
+        p {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img {
+                width: 80%;
+            }
+        } 
+    }
+}
+.framework {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    img {
+        width: 60%;
+    }
+}

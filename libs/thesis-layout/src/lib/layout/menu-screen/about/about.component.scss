@@ -1,0 +1,24 @@
+@media screen and (min-width: 600px) {
+    .abstract {
+        width: 70% !important;
+    }
+}
+@media screen and (min-width: 900px) {
+    .abstract {
+        width: 50% !important;
+    }
+}
+
+:host {
+    height: calc(100% - 1rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    & > * { width: 90% }
+    
+    .abstract {
+        font-size: 15px;
+        font-style: oblique;
+    }
+}

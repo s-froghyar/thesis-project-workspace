@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { BsModalService } from 'ngx-bootstrap/modal';
@@ -20,15 +20,10 @@ export class LayoutComponent {
   constructor(private readonly modal: BsModalService) {}
 
   toggleMenu(): void {
-    if (this.isMenuOpen) {
-      this.modal.hide();
-    } else {
-      this.modal.show(MenuScreenComponent, { 
-        animated: true,
-        class: 'menu-modal'
-      });
-    }
-    this.isMenuOpen = !this.isMenuOpen;
+    this.modal.show(MenuScreenComponent, { 
+      animated: true,
+      class: 'menu-modal'
+    });    
   }
 
 }

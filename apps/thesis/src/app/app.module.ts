@@ -1,11 +1,12 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
-import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
 import { ThesisLayoutModule } from "@somaf-ws/thesis-layout";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { MatTooltipModule } from '@angular/material/tooltip'; 
+
+import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { SelectionScreenComponent } from "./selection-screen/selection-screen.component";
 import { CoreModule } from "./core/core.module";
@@ -35,7 +36,8 @@ import { ImgViewerComponent } from "./model-screen/conv-layer/img-viewer/img-vie
     AppRoutingModule,
     CoreModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent],

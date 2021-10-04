@@ -12,12 +12,14 @@ import { AugmentationsComponent } from "./layout/menu-screen/augmentations/augme
 import { BaselineComponent } from "./layout/menu-screen/baseline/baseline.component";
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   imports: [
     CommonModule,
     FontAwesomeModule,
     MatSliderModule,
+    MatTooltipModule,
     ModalModule.forRoot(),
     TabsModule.forRoot(),
   ],

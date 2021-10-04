@@ -1,23 +1,31 @@
 <div class="container">
-    <h1 class="title">
-        Robust Deep Learning for Music Genre Classification using Augmentation Techniques<br/>
-        by SomaF
+  <div class="title">
+    <h1>
+      Robust Deep Learning for Music Genre Classification using Augmentation
+      Techniques<br />
+      by SomaF
     </h1>
-    <div class="close-btn" (click)="closeMenu()">
-        <fa-icon [icon]="closeIcon" size="2x"></fa-icon>
+  </div>
+  <div class="tabs">
+    <div
+      *ngFor="let tab of tabs; let i = index"
+      [ngClass]="tab.selected ? 'tab active' : 'tab'"
+      (click)="makeActive(i)"
+    >
+      {{ tab.title }}
     </div>
-    <div class="tabs">
-        <div *ngFor="let tab of tabs; let i = index"
-            [ngClass]="tab.selected ? 'tab active' : 'tab'"
-            (click)="makeActive(i)">
-                {{tab.title}}
-        </div>
-    </div>
-    <div [ngSwitch]="selectedTab" class="switch-container">
-        <div *ngSwitchCase="'about'"><about></about></div>
-        <div *ngSwitchCase="'baseline'"><baseline></baseline></div>
-        <div *ngSwitchCase="'tp'"><tp></tp></div>
-        <div *ngSwitchCase="'augerino'"><augerino></augerino></div>
-        <div *ngSwitchCase="'augs'"><augmentations></augmentations></div>
-    </div>
+  </div>
+  <div [ngSwitch]="selectedTab" class="switch-container">
+    <ng-container *ngSwitchCase="'about'"><about></about></ng-container>
+    <ng-container *ngSwitchCase="'baseline'"><baseline></baseline></ng-container>
+    <ng-container *ngSwitchCase="'tp'"><tp></tp></ng-container>
+    <ng-container *ngSwitchCase="'augerino'"><augerino></augerino></ng-container>
+    <ng-container *ngSwitchCase="'augs'"><augmentations></augmentations></ng-container>
+  </div>
+  <div class="close-btn" (click)="closeMenu()">
+    <fa-icon [icon]="closeIcon" size="2x"></fa-icon>
+  </div>
+  <div class="bg">
+      <img src="https://mgr-thesis-bucket.s3.eu-west-2.amazonaws.com/static/assets/signal.svg" alt="">
+  </div>
 </div>

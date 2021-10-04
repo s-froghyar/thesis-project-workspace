@@ -1,0 +1,44 @@
+:host {
+    height: calc(100% - 2rem);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    align-items: center;
+    .content {
+        display: flex;
+        justify-content: space-around;
+        height: 55%;
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+    
+            width: 50%;
+            height: 100%;
+            overflow-y: auto;
+            & > * { 
+                width: 90%;
+                align-self: flex-end;    
+            }
+            &:first-child * { align-self: flex-start 
+            }
+            .sum-rule {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                img {
+                    width: 60%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .full-net {
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+        img { width: 70% }
+    }
+}

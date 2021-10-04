@@ -9,6 +9,9 @@ body {
     // font-weight: 200;
     font-size: 16px;
     overflow: hidden;
+    &.modal-open {
+        position: relative;
+    }
 }
 .menu-modal {
     width: 100%;

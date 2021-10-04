@@ -21,12 +21,23 @@ export class ImgViewerComponent implements OnInit {
   set currentSpec(ind: number) {
     this._currentSpec = ind;
   }
-
+  dimensions!: string;
   currentUrl;
   prevUrl;
   nextUrl;
   ngOnInit(): void {
-    this.initUrls();    
+    this.initUrls();
+    switch (this.layer) {
+      case 'in':
+        this.dimensions = '(128x79)';
+        break;
+      case 'conv1':
+        this.dimensions = '(64x38)';
+        break;
+      case 'conv2':
+        this.dimensions = '(32x18)';
+        break;
+    }
   }
   initUrls(): void {
     if (this.layer === 'in') {

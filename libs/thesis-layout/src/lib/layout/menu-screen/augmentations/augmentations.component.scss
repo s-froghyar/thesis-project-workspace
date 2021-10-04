@@ -1,0 +1,53 @@
+:host {
+    height: calc(100% - 2rem);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    align-items: center;
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+    max-height: 70%;
+    .col {
+        width: 48%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+        h2 {
+            margin-bottom: 0;
+        }
+        img {width: 75%;}
+    }
+}
+.player-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    .setting-btns {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .aug-btn {
+            padding: 0.5rem;
+            margin: 1rem;
+            cursor: pointer;
+            &.active {
+                text-decoration: underline;
+            }
+            transition: color 0.5s ease-in-out;
+            &:hover {
+                background: black;
+                color: white;
+            }
+
+        }
+    }
+    thesis-audio-player {
+        width: 100%;
+    }
+}
