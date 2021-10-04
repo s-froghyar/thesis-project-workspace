@@ -21,7 +21,7 @@ import { S3Service } from "../core/s3.service";
 @Component({
   selector: "somaf-ws-model-screen",
   templateUrl: "./model-screen.component.html",
-  styleUrls: ["./model-screen.component.scss"],
+  styleUrls: ["./responsive.scss", "./model-screen.component.scss"],
   animations: [
     inOutAnimation,
     collapseAnimation,

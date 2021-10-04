@@ -1,67 +1,8 @@
-@media screen and (min-width: 900px) {
-    .model-screen-container {
-        .inner-model {
-            // .fc1-connect { width: 70px !important; }
-            &.collapsed {
-                .connect {
-                    &.pred-connect { width: 105px !important }
-                    &.fc1-connect { width: 70px; } 
-                }
-            }
-            &:not(.collapsed) {
-                .connect {
-                    &.pred-connect { width: 135px !important }
-                    &.fc1-connect { width: 85px; } 
-                        
-                }
-            }
-        }
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .model-screen-container {
-        .inner-model {
-            &.collapsed {
-                .connect {
-                    &.pred-connect { width: 108px !important }
-                    &.fc1-connect { width: 70px; } 
-                }
-                .genres { width: 120px; }
-            }
-            &:not(.collapsed) {
-                .connect {
-                    &.pred-connect { width: 138px !important }
-                    &.fc1-connect { width: 100px } 
-                }
-                .genres { width: 225px; }
-            }
-        }
-    }
-}
-
-// @media screen and (min-width: 1200px) {
-//     .model-screen-container {
-//         .inner-model {
-//             .connect {
-//                 width: 11%;
-//                 &.pred-connect { width: 108px }
-//             }
-//         }
-//     }
-// }
-
-
-
 .model-screen-container {
     position: relative;
-    // height: calc(100vh - 2rem); <-- give space on sides (not yet optimized
-    // width: calc(100vw - 2rem);
-    // padding: 1rem;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    // background-color: #4D4D4D;
     background: radial-gradient(circle, rgba(101,164,144,1) 15%, rgba(47,79,79,1) 85%);
     display: flex;
     align-items: center;
