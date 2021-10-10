@@ -1,53 +1,68 @@
+@media screen and (max-width: 600px) {
+    .content {
+        flex-direction: column;
+        .col {
+            width: 100% !important;
+        }
+    }
+    .player-area .setting-btns {
+        flex-direction: column;
+        .aug-btn {
+            width: 100%;
+            margin: 0 !important;
+            text-align: center;
+        }
+    }
+}
+
 :host {
-    height: calc(100% - 2rem);
-    padding: 1rem;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
     align-items: center;
-}
-.content {
-    display: flex;
-    justify-content: space-between;
-    max-height: 70%;
-    .col {
-        width: 48%;
+    .content {
+        display: flex;
+        justify-content: space-between;
+        max-height: 70%;
+        .col {
+            width: 48%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+            h2 {
+                margin-bottom: 0;
+            }
+            img {width: 75%;}
+        }
+    }
+    .player-area {
         display: flex;
         flex-direction: column;
         align-items: center;
-        overflow-y: auto;
-        h2 {
-            margin-bottom: 0;
-        }
-        img {width: 75%;}
-    }
-}
-.player-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    .setting-btns {
         width: 100%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        .aug-btn {
-            padding: 0.5rem;
-            margin: 1rem;
-            cursor: pointer;
-            &.active {
-                text-decoration: underline;
+        .setting-btns {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            .aug-btn {
+                padding: 0.5rem;
+                margin: 1rem;
+                cursor: pointer;
+                &.active {
+                    text-decoration: underline;
+                }
+                transition: color 0.5s ease-in-out;
+                &:hover {
+                    background: black;
+                    color: white;
+                }
+    
             }
-            transition: color 0.5s ease-in-out;
-            &:hover {
-                background: black;
-                color: white;
-            }
-
         }
-    }
-    thesis-audio-player {
-        width: 100%;
+        thesis-audio-player {
+            width: 100%;
+        }
     }
 }

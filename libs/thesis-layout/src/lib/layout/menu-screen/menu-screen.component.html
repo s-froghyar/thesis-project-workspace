@@ -6,16 +6,16 @@
       by SomaF
     </h1>
   </div>
-  <div class="tabs">
-    <div
-      *ngFor="let tab of tabs; let i = index"
-      [ngClass]="tab.selected ? 'tab active' : 'tab'"
-      (click)="makeActive(i)"
-    >
-      {{ tab.title }}
-    </div>
-  </div>
   <div [ngSwitch]="selectedTab" class="switch-container">
+    <div class="tabs">
+      <div
+        *ngFor="let tab of tabs; let i = index"
+        [ngClass]="tab.selected ? 'tab active' : 'tab'"
+        (click)="makeActive(i)"
+      >
+        {{ tab.title }}
+      </div>
+    </div>
     <ng-container *ngSwitchCase="'about'"><about></about></ng-container>
     <ng-container *ngSwitchCase="'baseline'"><baseline></baseline></ng-container>
     <ng-container *ngSwitchCase="'tp'"><tp></tp></ng-container>

@@ -1,36 +1,40 @@
+@media screen and (max-width: 600px) {
+    .content {
+        flex-direction: column;
+        .col {
+            width: 100% !important;
+        }
+    }
+    .framework img { width: 100% !important }
+}
+
+
 :host {
-    height: calc(100% - 2rem);
-    padding: 1rem;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-}
-.content {
-    display: flex;
-    justify-content: space-between;
-    height: 55%;
-    .col {
-        width: 50%;
-        height: 100%;
-        overflow-y: auto;
-        padding: 1rem;
-        p {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            img {
-                width: 80%;
-            }
-        } 
+    .content {
+        display: flex;
+        justify-content: space-between;
+        .col {
+            width: 48%;
+            overflow-y: auto;
+            p {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                img {
+                    width: 80%;
+                }
+            } 
+        }
     }
-}
-.framework {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    img {
-        width: 60%;
+    .framework {
+        width: 100%;
+        text-align: center;
+        img {
+            width: 60%;
+        }
     }
 }

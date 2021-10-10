@@ -85,7 +85,7 @@ export class S3Service {
         fc1 = sortWithIndices(fc1);
         fc2 = sortWithIndices(fc2, true);
         sum = sortWithIndices(sum, true);
-        console.log({ fc1, fc2, sum });
+
         return { fc1, fc2, sum };
       }    
 }

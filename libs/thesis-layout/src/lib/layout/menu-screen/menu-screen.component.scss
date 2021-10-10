@@ -1,7 +1,19 @@
+@media screen and (max-width: 600px) {
+    .container {
+        .switch-container .tabs {
+            flex-direction: column;
+            align-items: center;
+            .tab {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}
+
 .container {
-    // opacity: 0.85;
-    width: 100vw;
-    height: 100vh;
+    width: calc(100vw - 2rem);
+    height: calc(100vh - 2rem);
     color: #c3c3c3;
     display: flex;
     flex-direction: column;
@@ -9,15 +21,15 @@
     justify-content: flex-start;
     position: absolute;
     top: 0;
+    padding: 1rem;
     .title {
         display: flex;
         justify-content: center;
-        margin-top: 1rem;
         width: 100%;
         text-align: center;
         z-index: 2;
         h1 {
-            width: 60%;
+            width: 70%;
             margin: 0;
             font-size: 21px;
             background: radial-gradient(
@@ -38,24 +50,26 @@
         padding: 1rem;
         z-index: 20;
     }
-    .tabs {
-        width: 100%;
-        height: 3rem;
-        display: flex;
-        justify-content: center;
-        z-index: 20;
-        .tab {
-            padding: 1rem;
-            cursor: pointer;
-            &.active {
-                text-decoration: underline;
-            }
-        }
-    }
     .switch-container {
         width: 100%;
-        height: 80%;
         z-index: 2;
+        flex-grow: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        .tabs {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            .tab {
+                padding: 0.5rem;
+                cursor: pointer;
+                &.active {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
     .bg {
         position: absolute;
@@ -69,7 +83,7 @@
         img {
             width: 100%;
             position: absolute;
-            bottom: -8rem;
+            bottom: -1rem;
             opacity: 0.3;
         }
     }
