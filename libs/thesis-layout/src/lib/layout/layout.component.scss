@@ -1,3 +1,20 @@
+@media screen and (max-width: 600px) {
+    .title {
+        width: 100% !important;
+        margin-top: 2.5rem !important;
+    }
+    .menu-container {
+        width: 33%;
+        display: flex;
+        justify-content: center;
+    }
+    .socials {
+        width: 67%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
 .masthead {
     position: absolute;
     top: 0;

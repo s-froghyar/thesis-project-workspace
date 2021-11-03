@@ -26,7 +26,7 @@ import { S3Service } from "../core/s3.service";
     inOutAnimation,
     collapseAnimation,
     edgeContentReveal,
-    bringUpPlayer,
+    bringUpPlayer
   ],
 })
 export class ModelScreenComponent {

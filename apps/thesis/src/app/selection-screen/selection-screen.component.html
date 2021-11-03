@@ -1,25 +1,28 @@
-<div class="selection-container" [ngStyle]="{'color': pageColor}" [formGroup]="fg">
-    <div class="section" [ngStyle]="{'background': colors.leftBg}">
+<!-- [ngStyle]="{'color': pageColor}" [ngStyle]="{'background': colors.leftBg}" -->
+<div class="selection-container" [formGroup]="fg">
+    <div class="section" [class.valid]="fg.valid">
         <div class="instructions">
             <h1>Choose a sample file</h1>
             <p>The sample files are drawn from the validation set of the project.</p>
         </div>
         <somaf-ws-menu-selector [items]="musicOptions" formControlName="sampleFile"></somaf-ws-menu-selector>
     </div>
-    
-    <div class="section" [ngStyle]="{'background': colors.rightBg}">
+    <div class="section last" [class.valid]="fg.valid">
         <div class="instructions">
             <h1>Choose a model</h1>
             <p>The project used 4 different models:</p>
         </div>
         <somaf-ws-menu-selector [items]="models" formControlName="model"></somaf-ws-menu-selector>
-        
         <div class="instructions">
             <h1>Choose a transform</h1>
             <p>The models were trained to be robust to:</p>
         </div>
         <somaf-ws-menu-selector [items]="transforms" formControlName="transform"></somaf-ws-menu-selector>
     </div>
-    <div class="stepper" *ngIf="fg.valid" (click)="submit()"></div>
+    <div class="next" *ngIf="fg.valid" [@bringUpPanel]>
+        <h3>See results!</h3>
+        <div class="stepper" (click)="submit()"></div>
+    </div>
+    <div class="bg"></div>
 </div>
 

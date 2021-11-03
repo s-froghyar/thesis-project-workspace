@@ -72,3 +72,15 @@ export const bringUpPlayer = trigger(
     transition('true => false', animate('500ms ease-out'))
   ]
 );
+export const bringUpNextPanel = trigger(
+  'bringUpPanel', 
+  [
+    transition(':enter', [
+      style({bottom: '-20%'}),
+      animate('0.5s ease-out', 
+              style({ bottom: 0})
+            )
+      ]
+    )
+  ]
+);

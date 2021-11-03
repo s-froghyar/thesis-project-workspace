@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { modelOptions, sampleFiles, SettingOption, transformOptions } from '@somaf-ws/utils';
+import { bringUpNextPanel, modelOptions, sampleFiles, SettingOption, transformOptions } from '@somaf-ws/utils';
 import { ColorPaletteService } from '../core/color-palette.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -7,7 +7,10 @@ import { S3Service } from '../core/s3.service';
 @Component({
   selector: 'somaf-ws-selection-screen',
   templateUrl: './selection-screen.component.html',
-  styleUrls: ['./selection-screen.component.scss']
+  styleUrls: ['./selection-screen.component.scss'],
+  animations: [
+    bringUpNextPanel
+  ]
 })
 export class SelectionScreenComponent implements OnInit {
   fg: FormGroup = new FormGroup({

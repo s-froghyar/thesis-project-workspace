@@ -34,12 +34,11 @@ body {
     display: none;
     // background: yellow !important;
 }
+
 .mat-slider-track-background {
     background: #b5b5b5;
 }
+
 .mat-slider:hover .mat-slider-track-background, .mat-slider.cdk-focused .mat-slider-track-background {
     background: rgb(150, 150, 150);
 }
-// .mat-slider-horizontal .mat-slider-track-background, .mat-slider-track-fill, .mat-slider-thumb-container {
-//     transition: none;
-// }

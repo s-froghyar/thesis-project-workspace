@@ -34,20 +34,13 @@ export class MenuSelectorComponent implements ControlValueAccessor {
   touched = false;
   disabled = false;
   
-  optionBg;
-
   onChange = (v) => {};
 
   onTouched = () => {};
 
 
   
-  constructor(readonly colors: ColorPaletteService) {
-    const complColor = this.colors.getColorHarmony('split-complementary')?.secondary;
-    if (complColor) {
-      this.optionBg = `hsl(${complColor.hue}, ${complColor.saturation}%, ${complColor.light}%)`;
-    }
-  }
+  constructor() {}
 
   writeValue(val: SettingOption) {
     this.selected = val;
