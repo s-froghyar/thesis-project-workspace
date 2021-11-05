@@ -1,13 +1,13 @@
 <!-- [ngStyle]="{'color': pageColor}" [ngStyle]="{'background': colors.leftBg}" -->
 <div class="selection-container" [formGroup]="fg">
-    <div class="section" [class.valid]="fg.valid">
+    <div class="section">
         <div class="instructions">
             <h1>Choose a sample file</h1>
             <p>The sample files are drawn from the validation set of the project.</p>
         </div>
         <somaf-ws-menu-selector [items]="musicOptions" formControlName="sampleFile"></somaf-ws-menu-selector>
     </div>
-    <div class="section last" [class.valid]="fg.valid">
+    <div class="section last">
         <div class="instructions">
             <h1>Choose a model</h1>
             <p>The project used 4 different models:</p>
@@ -20,8 +20,11 @@
         <somaf-ws-menu-selector [items]="transforms" formControlName="transform"></somaf-ws-menu-selector>
     </div>
     <div class="next" *ngIf="fg.valid" [@bringUpPanel]>
-        <h3>See results!</h3>
-        <div class="stepper" (click)="submit()"></div>
+        <div class="btn btn-two" (click)="submit()">
+            <span class="arrow arrow-right"></span>
+            <h3 class="hover-text">See results!</h3>
+            <span class="arrow arrow-left"></span>
+        </div>
     </div>
     <div class="bg"></div>
 </div>

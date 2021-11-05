@@ -33,6 +33,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     BaselineComponent,
     AudioPlayerComponent,
   ],
-  exports: [LayoutComponent, AudioPlayerComponent],
+  exports: [LayoutComponent, AudioPlayerComponent]
 })
 export class ThesisLayoutModule {}

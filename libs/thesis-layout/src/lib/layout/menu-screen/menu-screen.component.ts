@@ -8,6 +8,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./menu-screen.component.scss']
 })
 export class MenuScreenComponent {
+  isMobile!: boolean;
   constructor(private readonly modal: BsModalRef) {}
   tabs: ITab[] = [
     { title: 'About this', selected: true, type: 'about'},

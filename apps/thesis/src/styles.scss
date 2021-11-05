@@ -21,7 +21,9 @@ body {
     left: 0;
     z-index: 10;
 }
-
+a:visited {
+    color: #c3c3c3;
+}
 
 .mat-primary .mat-slider-track-fill, .mat-primary .mat-slider-thumb, .mat-primary .mat-slider-thumb-label {
     background-color: #c3c3c3 !important;
@@ -32,7 +34,6 @@ body {
 }
 .mat-slider-horizontal .mat-slider-ticks {
     display: none;
-    // background: yellow !important;
 }
 
 .mat-slider-track-background {

@@ -22,7 +22,7 @@
     <ng-container *ngSwitchCase="'augerino'"><augerino></augerino></ng-container>
     <ng-container *ngSwitchCase="'augs'"><augmentations></augmentations></ng-container>
   </div>
-  <div class="close-btn" (click)="closeMenu()">
+  <div class="close-btn" (click)="closeMenu()" *ngIf="!isMobile">
     <fa-icon [icon]="closeIcon" size="2x"></fa-icon>
   </div>
   <div class="bg">

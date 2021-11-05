@@ -3,6 +3,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    .controls > * {
+        padding: .5rem;
+    }
     .slider {
         position: relative;
         width: 60%;

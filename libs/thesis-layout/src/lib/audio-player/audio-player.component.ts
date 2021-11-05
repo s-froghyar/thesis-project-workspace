@@ -1,13 +1,15 @@
 /* eslint-disable @angular-eslint/component-selector */
 import { Component, Input, OnInit } from '@angular/core';
-import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPause, faPlay, faSync } from '@fortawesome/free-solid-svg-icons';
 import { AudioMetadata, StreamState } from '@somaf-ws/utils';
+import { first } from 'rxjs/operators';
 import { AudioPlayerService } from './audio-player.service';
 
 @Component({
   selector: 'thesis-audio-player',
   templateUrl: './audio-player.component.html',
-  styleUrls: ['./audio-player.component.scss']
+  styleUrls: ['./audio-player.component.scss'],
+  providers: [AudioPlayerService]
 })
 export class AudioPlayerComponent implements OnInit {
   @Input() set meta(v: AudioMetadata) {
@@ -26,6 +28,7 @@ export class AudioPlayerComponent implements OnInit {
 
   playIcon = faPlay;
   pauseIcon = faPause;
+  refreshIcon = faSync;
 
   isPlaying = false;
   constructor(private readonly service: AudioPlayerService) {}
@@ -35,11 +38,8 @@ export class AudioPlayerComponent implements OnInit {
       this.state = state;
     });
   }
-
   playStream(url) {
-    this.service.playStream(url).subscribe(events => {
-      // listening for fun here      
-    });
+    this.service.playStream(url).subscribe();
   }
   stop() {
     this.service.stop();

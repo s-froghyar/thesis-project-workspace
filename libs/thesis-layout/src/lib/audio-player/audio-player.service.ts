@@ -5,9 +5,7 @@ import { takeUntil } from "rxjs/operators";
 import * as moment from "moment";
 import { StreamState } from "@somaf-ws/utils";
 
-@Injectable({
-  providedIn: "root"
-})
+@Injectable()
 export class AudioPlayerService {
   private stop$ = new Subject();
   private audioObj = new Audio();

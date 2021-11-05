@@ -11,4 +11,4 @@
         <a href="https://github.com/s-froghyar" target="_blank"><fa-icon [icon]="githubIcon" size="2x"></fa-icon></a>
     </div>
 </div>
-<ng-content></ng-content>
+<ng-content *ngIf="notMobile"></ng-content>

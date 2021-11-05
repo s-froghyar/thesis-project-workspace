@@ -1,8 +1,7 @@
 <div class="container">
     <div class="title">{{meta.title}}</div>
-    <div class="controls" (click)="togglePlay()">
-        <fa-icon [icon]="playIcon" *ngIf="!isPlaying"></fa-icon>
-        <fa-icon [icon]="pauseIcon" *ngIf="isPlaying"></fa-icon>
+    <div class="controls">
+        <fa-icon (click)="togglePlay()" [icon]="isPlaying ? pauseIcon : playIcon"></fa-icon>
     </div>
     <div class="slider">
         <span>{{ state?.readableCurrentTime }}</span>
