@@ -37,7 +37,6 @@
     "aws-serverless-express": "^3.4.0",
     "color-convert": "^2.0.1",
     "nestjs-s3": "^1.0.1",
-    "ngx-bootstrap": "^7.1.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
