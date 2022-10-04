@@ -12,16 +12,16 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^12.1.0",
+    "@angular/animations": "^13.3.11",
     "@angular/cdk": "^12.2.7",
-    "@angular/common": "^12.1.0",
-    "@angular/compiler": "^12.1.0",
-    "@angular/core": "^12.1.0",
-    "@angular/forms": "^12.1.0",
+    "@angular/common": "^13.3.11",
+    "@angular/compiler": "^13.3.11",
+    "@angular/core": "^13.3.11",
+    "@angular/forms": "^13.3.11",
     "@angular/material": "^12.2.7",
-    "@angular/platform-browser": "^12.1.0",
-    "@angular/platform-browser-dynamic": "^12.1.0",
-    "@angular/router": "^12.1.0",
+    "@angular/platform-browser": "^13.3.11",
+    "@angular/platform-browser-dynamic": "^13.3.11",
+    "@angular/router": "^13.3.11",
     "@flowaccount/nx-serverless": "^1.0.0-beta.5",
     "@fortawesome/angular-fontawesome": "^0.9.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -45,13 +45,13 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~12.1.0",
+    "@angular-devkit/build-angular": "~13.3.9",
     "@angular-eslint/eslint-plugin": "~12.3.0",
     "@angular-eslint/eslint-plugin-template": "~12.3.0",
     "@angular-eslint/template-parser": "~12.3.0",
-    "@angular/cli": "~12.1.0",
-    "@angular/compiler-cli": "^12.1.0",
-    "@angular/language-service": "^12.1.0",
+    "@angular/cli": "~13.3.9",
+    "@angular/compiler-cli": "^13.3.11",
+    "@angular/language-service": "^13.3.11",
     "@hewmen/serverless-plugin-typescript": "^1.1.17",
     "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
@@ -80,6 +80,6 @@
     "serverless-plugin-optimize": "^4.2.1-rc.1",
     "serverless-plugin-typescript": "^2.0.0",
     "ts-jest": "27.0.3",
-    "typescript": "~4.3.5"
+    "typescript": "~4.6.4"
   }
 }
