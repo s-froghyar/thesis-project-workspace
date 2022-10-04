@@ -13,15 +13,8 @@
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "types": ["node"],
-    "noImplicitAny": false,
     "baseUrl": ".",
-    "paths": {
-      "@somaf-ws/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@somaf-ws/color-harmonies": ["libs/color-harmonies/src/index.ts"],
-      "@somaf-ws/thesis-layout": ["libs/thesis-layout/src/index.ts"],
-      "@somaf-ws/utils": ["libs/utils/src/index.ts"]
-    }
+    "paths": {}
   },
   "exclude": ["node_modules", "tmp"]
 }
