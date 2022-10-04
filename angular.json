@@ -267,8 +267,10 @@
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular",
-    "packageManager": "npm"
+    "packageManager": "yarn",
+    "schematicCollections": [
+      "@nrwl/angular"
+    ]
   },
   "schematics": {
     "@nrwl/angular": {
