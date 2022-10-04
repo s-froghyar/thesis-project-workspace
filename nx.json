@@ -1,5 +1,8 @@
 {
   "npmScope": "somaf-ws",
+  "cli": {
+    "packageManager": "yarn"
+  },
   "affected": {
     "defaultBase": "master"
   },
