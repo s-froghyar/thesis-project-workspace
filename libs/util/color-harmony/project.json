@@ -1,0 +1,34 @@
+{
+  "name": "util-color-harmony",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/util/color-harmony/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/util/color-harmony",
+        "main": "libs/util/color-harmony/src/index.ts",
+        "tsConfig": "libs/util/color-harmony/tsconfig.lib.json",
+        "assets": ["libs/util/color-harmony/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/util/color-harmony/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/util/color-harmony"],
+      "options": {
+        "jestConfig": "libs/util/color-harmony/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["util"]
+}

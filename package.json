@@ -38,6 +38,7 @@
     "@nrwl/cypress": "14.8.3",
     "@nrwl/eslint-plugin-nx": "14.8.3",
     "@nrwl/jest": "14.8.3",
+    "@nrwl/js": "14.8.3",
     "@nrwl/linter": "14.8.3",
     "@nrwl/nx-cloud": "latest",
     "@nrwl/workspace": "14.8.3",
