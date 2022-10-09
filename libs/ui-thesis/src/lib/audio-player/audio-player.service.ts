@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import * as dayjs from 'dayjs'
+import * as dayjs from 'dayjs';
 import { StreamState } from './audio-player.interface';
 
 @Injectable()

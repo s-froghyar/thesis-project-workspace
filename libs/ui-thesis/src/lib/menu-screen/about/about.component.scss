@@ -10,7 +10,9 @@
 }
 @media screen and (max-width: 600px) {
   :host {
-    & > * { width: 100% !important }
+    & > * {
+      width: 100% !important;
+    }
   }
 }
 
@@ -19,7 +21,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  & > * { width: 90% }
+  & > * {
+    width: 90%;
+  }
 
   .abstract {
     font-size: 15px;

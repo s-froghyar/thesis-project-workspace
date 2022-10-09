@@ -16,6 +16,10 @@
     "baseUrl": ".",
     "paths": {
       "@color-harmony": ["libs/util/color-harmony/src/index.ts"],
+      "@somaf-ws/feat-thesis-model": ["libs/feat-thesis-model/src/index.ts"],
+      "@somaf-ws/feat-thesis-selection": [
+        "libs/feat-thesis-selection/src/index.ts"
+      ],
       "@somaf-ws/ui-thesis": ["libs/ui-thesis/src/index.ts"],
       "@somaf-ws/utils-thesis": ["libs/utils-thesis/src/index.ts"]
     }

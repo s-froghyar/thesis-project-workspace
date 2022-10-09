@@ -1,4 +1,4 @@
-<div class="container" *ngIf="(state$ | async) as state">
+<div class="container" *ngIf="state$ | async as state">
   <div class="title">{{ meta.title }}</div>
   <div class="controls">
     <mat-icon *ngIf="isPlaying">pause</mat-icon>

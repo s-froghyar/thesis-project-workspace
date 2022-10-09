@@ -5,9 +5,10 @@
       width: 100% !important;
     }
   }
-  .framework img { width: 100% !important }
+  .framework img {
+    width: 100% !important;
+  }
 }
-
 
 :host {
   flex-grow: 1;

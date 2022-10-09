@@ -1,25 +1,27 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    .controls > * {
-        padding: .5rem;
-    }
-    .slider {
-        position: relative;
-        width: 60%;
-        span {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            width: max-content;
+  .controls > * {
+    padding: 0.5rem;
+  }
+  .slider {
+    position: relative;
+    width: 60%;
+    span {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: max-content;
 
-            &:first-child { left: 0 }
-        }
-        .time-slider {
-            width: 100% !important;
-        }
+      &:first-child {
+        left: 0;
+      }
     }
+    .time-slider {
+      width: 100% !important;
+    }
+  }
 }

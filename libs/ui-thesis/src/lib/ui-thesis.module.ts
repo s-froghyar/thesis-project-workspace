@@ -15,6 +15,6 @@ import { LayoutComponent } from './layout/layout.component';
     DialogModule,
   ],
   declarations: [LayoutComponent],
-  exports: [LayoutComponent]
+  exports: [LayoutComponent],
 })
 export class UiThesisModule {}

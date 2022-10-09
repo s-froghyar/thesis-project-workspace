@@ -4,7 +4,9 @@
     .tau {
       width: 50% !important;
       text-align: center;
-      &:hover { width: 50% !important }
+      &:hover {
+        width: 50% !important;
+      }
     }
     .col {
       width: 100% !important;
