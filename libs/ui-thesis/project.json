@@ -1,0 +1,44 @@
+{
+  "name": "ui-thesis",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/ui-thesis/src",
+  "prefix": "somaf-ws",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/ui-thesis"],
+      "options": {
+        "project": "libs/ui-thesis/ng-package.json",
+        "tailwindConfig": "libs/ui-thesis/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ui-thesis/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ui-thesis/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ui-thesis"],
+      "options": {
+        "jestConfig": "libs/ui-thesis/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ui-thesis/**/*.ts",
+          "libs/ui-thesis/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["ui"]
+}

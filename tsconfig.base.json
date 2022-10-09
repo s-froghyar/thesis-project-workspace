@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@color-harmony": ["libs/util/color-harmony/src/index.ts"]
+      "@color-harmony": ["libs/util/color-harmony/src/index.ts"],
+      "@somaf-ws/ui-thesis": ["libs/ui-thesis/src/index.ts"],
+      "@somaf-ws/utils-thesis": ["libs/utils-thesis/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

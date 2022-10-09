@@ -1,0 +1,24 @@
+<div class="masthead">
+  <div class="menu-container" (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </div>
+  <h1 class="title">
+    Robust Deep Learning for Music Genre Classification using Augmentation
+    Techniques<br />
+    by SomaF
+  </h1>
+  <div class="socials">
+    <a
+      href="https://www.linkedin.com/in/soma-froghyar-842426137/"
+      target="_blank"
+      >
+      <mat-icon></mat-icon>
+
+    </a>
+    <a href="https://github.com/s-froghyar" target="_blank"
+      >
+      <mat-icon></mat-icon>
+    </a>
+  </div>
+</div>
+<ng-content *ngIf="notMobile"></ng-content>
