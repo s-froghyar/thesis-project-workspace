@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import * as dayjs from 'dayjs';
-import { StreamState } from './audio-player.interface';
+import { StreamState } from '@somaf-ws/types-thesis';
 
 @Injectable()
 export class AudioPlayerService {

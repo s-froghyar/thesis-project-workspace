@@ -71,7 +71,7 @@ import { CommonModule } from '@angular/common';
       </div>
     </div>
   `,
-  styles: ['tp.component.scss'],
+  styles: ['./tp.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TpComponent {}

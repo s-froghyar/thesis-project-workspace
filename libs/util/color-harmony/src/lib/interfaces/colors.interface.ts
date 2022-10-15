@@ -15,3 +15,5 @@ export interface ColorHarmony {
     fourth?: Color;
     fifth?: Color;
 }
+
+export type ColorHamronyFields = 'base' | 'secondary' | 'tertiary' | 'fourth' | 'fifth';

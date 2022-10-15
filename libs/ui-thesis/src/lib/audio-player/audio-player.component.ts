@@ -1,11 +1,11 @@
 /* eslint-disable @angular-eslint/component-selector */
-import { Component, Input, OnInit } from '@angular/core';
-import { AudioMetadata, StreamState } from './audio-player.interface';
-import { AudioPlayerService } from './audio-player.service';
-import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
+import { AudioMetadata, StreamState } from '@somaf-ws/types-thesis';
+import { Observable } from 'rxjs';
+import { AudioPlayerService } from './audio-player.service';
 
 @Component({
   selector: 'thesis-audio-player',

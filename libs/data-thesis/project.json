@@ -1,15 +1,15 @@
 {
-  "name": "ui-thesis",
+  "name": "data-thesis",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/ui-thesis/src",
+  "sourceRoot": "libs/data-thesis/src",
   "prefix": "somaf-ws",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/ui-thesis"],
+      "outputs": ["coverage/libs/data-thesis"],
       "options": {
-        "jestConfig": "libs/ui-thesis/jest.config.ts",
+        "jestConfig": "libs/data-thesis/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -17,11 +17,11 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/ui-thesis/**/*.ts",
-          "libs/ui-thesis/**/*.html"
+          "libs/data-thesis/**/*.ts",
+          "libs/data-thesis/**/*.html"
         ]
       }
     }
   },
-  "tags": ["ui"]
+  "tags": ["data"]
 }

@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AudioMetadata } from '../../audio-player/audio-player.interface';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+import { AudioMetadata } from '@somaf-ws/types-thesis';
 import { AudioPlayerComponent } from '../../audio-player/audio-player.component';
 
 @Component({
