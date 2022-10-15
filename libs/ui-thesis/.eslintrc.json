@@ -9,20 +9,13 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
+        "@angular-eslint/component-selector": ["off"],
         "@angular-eslint/directive-selector": [
           "error",
           {
             "type": "attribute",
             "prefix": "somafWs",
             "style": "camelCase"
-          }
-        ],
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "somaf-ws",
-            "style": "kebab-case"
           }
         ]
       }

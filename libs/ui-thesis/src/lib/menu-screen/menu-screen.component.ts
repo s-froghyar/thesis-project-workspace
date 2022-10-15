@@ -1,16 +1,28 @@
-import { Component } from '@angular/core';
-import { ITab, TabType } from './menu.interface';
-import { MatDialogRef } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { AboutComponent } from './about/about.component';
+import { AugerinoComponent } from './augerino/augerino.component';
 import { AugmentationsComponent } from './augmentations/augmentations.component';
+import { BaselineComponent } from './baseline/baseline.component';
+import { ITab, TabType } from './menu.interface';
+import { TpComponent } from './tp/tp.component';
+
+const tabComponents = [
+  AugmentationsComponent,
+  AugerinoComponent,
+  BaselineComponent,
+  AboutComponent,
+  TpComponent,
+];
 
 @Component({
   selector: 'somaf-ws-menu-screen',
   templateUrl: './menu-screen.component.html',
   styleUrls: ['./menu-screen.component.scss'],
   standalone: true,
-  imports: [CommonModule, MatIconModule, AugmentationsComponent],
+  imports: [CommonModule, MatIconModule, ...tabComponents],
 })
 export class MenuScreenComponent {
   isMobile!: boolean;

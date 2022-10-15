@@ -59,7 +59,7 @@ import { AudioPlayerComponent } from '../../audio-player/audio-player.component'
           {{ meta.title }}
         </div>
       </div>
-      <somaf-ws-audio-player [meta]="selectedMeta"></somaf-ws-audio-player>
+      <thesis-audio-player [meta]="selectedMeta"></thesis-audio-player>
     </div>
   `,
   styleUrls: ['augmentations.component.scss'],
