@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "api-handlers",
+  "projectType": "library",
+  "sourceRoot": "libs/api/handlers",
+  "targets": {
+    "test": {
+      "executor": "@nx-go/nx-go:test"
+    },
+    "lint": {
+      "executor": "@nx-go/nx-go:lint"
+    }
+  },
+  "tags": ["go"]
+}
