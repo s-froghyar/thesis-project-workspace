@@ -4,6 +4,11 @@
   "projectType": "library",
   "sourceRoot": "libs/ui-thesis/src",
   "prefix": "somaf-ws",
+  "schematics": {
+    "@schematics/angular:component": {
+       "style": "scss"
+     }
+   },
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",

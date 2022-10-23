@@ -4,14 +4,12 @@ import { RouterModule } from '@angular/router';
 import { ModelScreenComponent } from './model-screen/model-screen.component';
 
 @NgModule({
+  declarations: [ModelScreenComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: '', pathMatch: 'full', component: ModelScreenComponent }
-    ])
-  ],
-  declarations: [
-    ModelScreenComponent
+      { path: '', pathMatch: 'full', component: ModelScreenComponent },
+    ]),
   ],
 })
 export class FeatThesisModelModule {}

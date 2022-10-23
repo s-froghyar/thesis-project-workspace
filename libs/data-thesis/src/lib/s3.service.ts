@@ -9,9 +9,7 @@ import { sortWithIndices } from '@somaf-ws/utils-thesis';
 import { forkJoin, Observable, throwError } from 'rxjs';
 import { catchError, first, map } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class S3Service {
   private _root = 'https://mgr-thesis-bucket.s3.eu-west-2.amazonaws.com/static';
   private _sampleUrl!: string;

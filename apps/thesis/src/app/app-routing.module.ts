@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
-import { ModelGuard } from '@somaf-ws/utils-thesis';
 
 const routes: Route[] = [
   {
@@ -15,9 +14,13 @@ const routes: Route[] = [
     loadChildren: () =>
       import('@somaf-ws/feat-thesis-model').then(
         (m) => m.FeatThesisModelModule
-      ),
-    canMatch: [ModelGuard],
+      )
   },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: ''
+  }
 ];
 
 @NgModule({
