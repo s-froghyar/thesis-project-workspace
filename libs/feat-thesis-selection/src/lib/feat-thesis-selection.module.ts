@@ -6,6 +6,7 @@ import { ModelSelectionService } from '@somaf-ws/utils-thesis';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuSelectorComponent } from './menu-selector/menu-selector.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FileUploadComponent } from '@somaf-ws/ui-thesis';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
       { path: '', pathMatch: 'full', component: SelectionScreenComponent },
     ]),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FileUploadComponent
   ],
   declarations: [SelectionScreenComponent, MenuSelectorComponent],
   providers: [ModelSelectionService],

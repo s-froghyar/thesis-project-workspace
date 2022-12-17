@@ -1,0 +1,21 @@
+@import '_colors';
+
+:host {
+    width: 80%;
+}
+
+.container {
+    background-color: $primary-bg;
+    color: $primary-color;
+
+    border: 1px solid $primary-color;
+    border-radius: 5px;
+    width: 100%;
+    padding: 1rem;
+    opacity: 0.7;
+
+    &.over {
+        opacity: 1;
+        box-shadow: rgba(255, 255, 255, 0.146) 0px 0px 28px 5px;
+    }
+}

@@ -8,6 +8,15 @@
       [items]="musicOptions"
       formControlName="sampleFile"
     ></somaf-ws-menu-selector>
+    <div class="instructions">
+      <h1>Or Simply upload a song</h1>
+      <p>
+        You can upload a song (no longer than 30 seconds or it will be clipped)
+        of <code>wav</code> format.
+      </p>
+    </div>
+
+    <somaf-ws-file-upload formControlName="customFile"></somaf-ws-file-upload>
   </div>
   <div class="section last">
     <div class="instructions">
@@ -27,7 +36,15 @@
       formControlName="transform"
     ></somaf-ws-menu-selector>
   </div>
-  <div class="next" *ngIf="fg.valid" [@bringUpPanel]>
+  <div
+    class="next"
+    *ngIf="
+      (this.fg.controls.customFile.valid ||
+        this.fg.controls.sampleFile.valid) &&
+      this.fg.controls.model.valid && this.fg.controls.transform.valid
+    "
+    [@bringUpPanel]
+  >
     <div class="btn btn-two" (click)="submit()">
       <span class="arrow arrow-right"></span>
       <h3 class="hover-text">See results!</h3>

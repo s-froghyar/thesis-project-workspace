@@ -1,0 +1,21 @@
+<div
+  class="container"
+  somafWsFileDrop
+  (click)="fileField.click()"
+  (fileDropped)="upload($event)"
+>
+  <span class="ddinfo" *ngIf="selectedFile; else placeholder"
+    >File selected: {{ selectedFile.name }}</span
+  >
+  <input
+    type="file"
+    name="song"
+    #fileField
+    (change)="upload($event)"
+    hidden
+    multiple
+  />
+</div>
+<ng-template #placeholder
+  >Choose a file or drag here. {{ errorTxt ?? '' }}</ng-template
+>

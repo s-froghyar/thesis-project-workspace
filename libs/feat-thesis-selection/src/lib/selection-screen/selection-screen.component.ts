@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  Self
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Self } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ColorPaletteService } from '@color-harmony';
@@ -13,7 +8,7 @@ import {
   modelOptions,
   ModelSelectionService,
   sampleFiles,
-  transformOptions
+  transformOptions,
 } from '@somaf-ws/utils-thesis';
 import { take } from 'rxjs/operators';
 
@@ -25,13 +20,13 @@ import { take } from 'rxjs/operators';
   providers: [ColorPaletteService],
   animations: [bringUpNextPanel],
 })
-export class SelectionScreenComponent implements OnInit {
-  fg: FormGroup = new FormGroup({
-    sampleFile: new FormControl([null, Validators.required]),
-    model: new FormControl([null, Validators.required]),
-    transform: new FormControl([null, Validators.required]),
+export class SelectionScreenComponent {
+  fg = new FormGroup({
+    sampleFile: new FormControl<string | null>(null),
+    customFile: new FormControl(null),
+    model: new FormControl<string | null>(null, Validators.required),
+    transform: new FormControl<string | null>(null, Validators.required),
   });
-  pageColor!: string;
 
   musicOptions: SettingOption[] = sampleFiles;
   models: SettingOption[] = modelOptions;
@@ -43,24 +38,25 @@ export class SelectionScreenComponent implements OnInit {
     private readonly router: Router
   ) {}
 
-  ngOnInit(): void {
-    const complColor = this.colors.getColorHarmony(
-      'split-complementary'
-    )?.secondary;
-    if (complColor) {
-      this.pageColor = `hsl(${complColor.hue}, ${complColor.saturation}%, ${complColor.light}%)`;
-    }
-  }
   submit(): void {
-    this.modelSelection
-      .selectModel({
-        sampleFile: this.fg.controls['sampleFile'].value,
-        model: this.fg.controls['model'].value,
-        transform: this.fg.controls['transform'].value,
-      })
-      .pipe(take(1))
-      .subscribe(() => {
-        this.router.navigate(['model']);
+    if (this.fg.value.customFile) {
+      console.log('do the upload method');
+      this.modelSelection.selectCustomModel({
+        customFile: this.fg.value.customFile,
+        model: this.fg.value.model as string,
+        transform: this.fg.value.transform as string,
       });
+    } else {
+      this.modelSelection
+        .selectSampleModel({
+          sampleFile: this.fg.value.sampleFile as string,
+          model: this.fg.value.model as string,
+          transform: this.fg.value.transform as string,
+        })
+        .pipe(take(1))
+        .subscribe(() => {
+          this.router.navigate(['model']);
+        });
+    }
   }
 }

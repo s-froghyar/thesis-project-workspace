@@ -23,6 +23,7 @@ var (
 func init() {
 	fmt.Print("Starting server...")
 	l = hclog.Default()
+	// c = config.LoadConfig("../../")
 	r = router.New(l)
 	fmt.Print("Success!\n")
 }
@@ -30,7 +31,7 @@ func init() {
 func main() {
 	fmt.Println("\n   _____                       ______\n  / ___/____  ____ ___  ____ _/ ____/\n  \\__ \\/ __ \\/ __ `__ \\/ __ `/ /_    \n ___/ / /_/ / / / / / / /_/ / __/    \n/____/\\____/_/ /_/ /_/\\__,_/_/       \n                                     \n")
 	go func() {
-		if err := r.Start("localhost:9090"); err != nil && err != http.ErrServerClosed {
+		if err := r.Start("0.0.0.0:9090"); err != nil && err != http.ErrServerClosed {
 			l.Error("Shutting down ze server lads", err)
 		}
 	}()
