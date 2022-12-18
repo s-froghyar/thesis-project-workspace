@@ -14,15 +14,16 @@ func New(l hclog.Logger) (e *echo.Echo) {
 
 	d := data.NewService(l)
 	e = echo.New()
-
 	e.HideBanner = true
+
+	e.Use(middleware.BodyLimit("3M"))
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 		AllowMethods: []string{http.MethodGet, http.MethodPost},
 	}))
 
-	uploadHandler := handlers.NewUploadHandler(l, d)
+	inferenceHandler := handlers.NewInferenceHandler(l, d)
 
-	e.POST("custom", uploadHandler.UploadSong)
+	e.POST("custom", inferenceHandler.RunInferenceOnSong)
 
 	return
 }

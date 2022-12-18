@@ -2214,6 +2214,11 @@
   dependencies:
     fs-extra "^9.1.0"
 
+"@nx-python/nx-python@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@nx-python/nx-python/-/nx-python-1.0.3.tgz#f12307f2b951f61b43e07012a025a2ab94509ed1"
+  integrity sha512-j6x8SzYU4uHWePS0qpz/+xkxkgEnXFnUoyM5Hkd+NXBctkcxmsb5f6iWO7qRfvBEh1Ot21dMMUcSALLBeAArxw==
+
 "@parcel/watcher@2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@parcel/watcher/-/watcher-2.0.4.tgz#f300fef4cc38008ff4b8c29d92588eced3ce014b"

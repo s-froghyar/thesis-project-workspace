@@ -24,6 +24,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/sts v1.17.7 // indirect
 	github.com/aws/smithy-go v1.13.5 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
+	github.com/google/uuid v1.3.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect
@@ -44,6 +45,7 @@ require (
 	github.com/aws/aws-sdk-go v1.44.157
 	github.com/aws/aws-sdk-go-v2 v1.17.3
 	github.com/aws/aws-sdk-go-v2/config v1.18.5
+	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.11.44
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.29.6
 	github.com/fatih/color v1.13.0 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
